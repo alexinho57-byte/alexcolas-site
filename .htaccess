@@ -1,0 +1,65 @@
+# ─────────────────────────────────────────────────────────────
+#  alexcolas.com — configuration serveur (Apache / LiteSpeed)
+# ─────────────────────────────────────────────────────────────
+
+# Pas de liste des fichiers si un dossier n'a pas d'index
+Options -Indexes
+
+# ── Adresse canonique ────────────────────────────────────────
+# HTTPS et suppression du www en UNE seule redirection.
+# Deux redirections en chaîne coûtent du référencement,
+# d'où la règle unique plutôt que deux règles empilées.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://alexcolas.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ── Fichiers à ne jamais servir ──────────────────────────────
+# Le déploiement Git dépose un dossier .git dans public_html :
+# sans cette règle, l'historique complet du site est lisible.
+<IfModule mod_rewrite.c>
+  RewriteRule (^|/)\. - [F]
+</IfModule>
+
+# ── Compression ──────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ── Mise en cache ────────────────────────────────────────────
+# Les noms de fichiers ne portent pas de numéro de version :
+# le HTML est donc revalidé à chaque visite, et le CSS/JS
+# gardé une heure seulement. Sans quoi vos visiteurs
+# resteraient bloqués sur une ancienne version après un push.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                          "access plus 1 hour"
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 hour"
+  ExpiresByType application/javascript    "access plus 1 hour"
+  ExpiresByType image/jpeg                "access plus 30 days"
+  ExpiresByType image/png                 "access plus 30 days"
+  ExpiresByType image/svg+xml             "access plus 30 days"
+  ExpiresByType image/webp                "access plus 30 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # ── Sécurité ───────────────────────────────────────────────
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ── Page 404 ─────────────────────────────────────────────────
+# À décommenter le jour où la page 404.html existe.
+# Tant qu'elle n'existe pas, cette ligne casserait les erreurs.
+# ErrorDocument 404 /404.html
