@@ -60,6 +60,6 @@ Options -Indexes
 </IfModule>
 
 # ── Page 404 ─────────────────────────────────────────────────
-# À décommenter le jour où la page 404.html existe.
-# Tant qu'elle n'existe pas, cette ligne casserait les erreurs.
-# ErrorDocument 404 /404.html
+# Servie pour toute URL inexistante, y compris dans un
+# sous-dossier : d'où les chemins absolus dans 404.html.
+ErrorDocument 404 /404.html
