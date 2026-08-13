@@ -32,16 +32,19 @@ Options -Indexes
 </IfModule>
 
 # ── Mise en cache ────────────────────────────────────────────
-# Les noms de fichiers ne portent pas de numéro de version :
-# le HTML est donc revalidé à chaque visite, et le CSS/JS
-# gardé une heure seulement. Sans quoi vos visiteurs
-# resteraient bloqués sur une ancienne version après un push.
+# Le HTML n'est jamais mis en cache : c'est lui qui porte le
+# numéro de version du CSS et du JS (style.css?v=2).
+# Ces deux-là peuvent donc être gardés très longtemps : changer
+# le numéro dans le HTML crée une nouvelle URL, que ni le
+# navigateur ni le cache serveur d'Hostinger ne connaissent.
+# Sans ce numéro, une mise à jour du CSS mettrait jusqu'à une
+# heure à devenir visible, cache serveur compris.
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault                          "access plus 1 hour"
   ExpiresByType text/html                 "access plus 0 seconds"
-  ExpiresByType text/css                  "access plus 1 hour"
-  ExpiresByType application/javascript    "access plus 1 hour"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
   ExpiresByType image/jpeg                "access plus 30 days"
   ExpiresByType image/png                 "access plus 30 days"
   ExpiresByType image/svg+xml             "access plus 30 days"
