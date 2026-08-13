@@ -1,0 +1,8 @@
+# Notes internes : ce dépôt est déployé tel quel à la racine du site,
+# tout ce qui s'y trouve devient public. Gardez ce fichier hors du dépôt.
+LISEZ-MOI.md
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
