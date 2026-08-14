@@ -29,7 +29,7 @@
   --shell:1200px;
   --gutter:clamp(1.25rem,4vw,3.5rem);
 
-  --font-display:"Syne",system-ui,sans-serif;
+  --font-display:"Bricolage Grotesque",system-ui,sans-serif;
   --font-body:"Inter Tight",system-ui,-apple-system,sans-serif;
   --font-mono:"JetBrains Mono",ui-monospace,monospace;
 
@@ -238,9 +238,9 @@ a{color:inherit}
 
 .hero__title{
   font-weight:800;
-  font-size:clamp(2rem,8.8vw,4.35rem);
+  font-size:clamp(2.05rem,9.4vw,4.35rem);
   line-height:.94;
-  letter-spacing:-.035em;
+  letter-spacing:-.03em;
   margin:0 0 1.75rem;
 }
 .hero__title span{display:block}
