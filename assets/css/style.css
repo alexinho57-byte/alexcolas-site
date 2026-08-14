@@ -842,14 +842,12 @@ a{color:inherit}
         var(--taupe) 66%,
         #96826f 100%);
   }
-  /* Largeur plafonnée et proportion fixe : sur une tablette, une bande
-     pleine largeur deviendrait large et courte, et le cadrage se
-     réduirait au front et aux yeux. Un téléphone, lui, ne dépasse pas
-     le plafond : son affichage ne bouge pas. */
+  /* Pleine largeur, sur la même verticale que le texte. C'est la
+     proportion qui est pilotée, pas la hauteur : une bande large et
+     courte réduirait le cadrage au front et aux yeux. */
   .hero__media{
     position:relative;
-    width:min(100%,30rem);
-    margin-left:auto;
+    width:100%;
     aspect-ratio:1 / 1.1;
     height:auto;
     max-height:58vh;
@@ -871,18 +869,17 @@ a{color:inherit}
   .facts{flex-direction:column;gap:.5rem}
 }
 
-/* Dès que la photo ne touche plus le bord gauche de l'écran, ce bord
-   devient une arête visible : on le dissout comme sur la version large. */
-@media (min-width:481px) and (max-width:760px),
-       (min-width:481px) and (max-aspect-ratio:4/5){
+/* Sur tablette, une bande aussi haute que sur téléphone occuperait
+   presque tout l'écran avant le premier mot. La proportion s'élargit
+   donc, sans jamais devenir assez plate pour couper le visage. */
+@media (min-width:600px) and (max-width:760px),
+       (min-width:600px) and (max-aspect-ratio:4/5){
+  .hero__media{aspect-ratio:4 / 3}
   .hero__media img{
-    -webkit-mask-image:
-      linear-gradient(to bottom,transparent 0,#000 8%,#000 60%,transparent 98%),
-      linear-gradient(to right,transparent 0,#000 20%);
-    mask-image:
-      linear-gradient(to bottom,transparent 0,#000 8%,#000 60%,transparent 98%),
-      linear-gradient(to right,transparent 0,#000 20%);
-    -webkit-mask-composite:source-in;
-    mask-composite:intersect;
+    /* Le portrait remonte et le fondu descend : sinon la dissolution
+       commence sur la barbe au lieu du buste. */
+    object-position:52% 18%;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 74%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 74%,transparent 100%);
   }
 }
