@@ -866,6 +866,9 @@ a{color:inherit}
   }
   .hero__inner{padding-block:0}
   .hero__title{max-width:none}
+  .hero__actions{margin-bottom:2.5rem}
+  .btn{flex:1 1 auto}
+  .facts{flex-direction:column;gap:.5rem}
 }
 
 /* Dès que la photo ne touche plus le bord gauche de l'écran, ce bord
@@ -882,7 +885,4 @@ a{color:inherit}
     -webkit-mask-composite:source-in;
     mask-composite:intersect;
   }
-  .hero__actions{margin-bottom:2.5rem}
-  .btn{flex:1 1 auto}
-  .facts{flex-direction:column;gap:.5rem}
 }
