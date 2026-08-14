@@ -5,15 +5,12 @@
   'use strict';
 
   /* -----------------------------------------------------------
-     RÉGLAGE À FAIRE : où partent les messages du formulaire.
-     - Laissé vide, le formulaire ouvre la messagerie du visiteur
-       avec le message déjà rédigé (fonctionne sans hébergement).
-     - Avec un service comme Formspree, Basin ou Web3Forms, collez
-       ici l'URL fournie : les messages arrivent alors par e-mail
-       sans que le visiteur quitte le site.
-       Exemple : 'https://formspree.io/f/xxxxxxxx'
+     Où partent les messages du formulaire.
+     Le script contact.php est hébergé avec le site : les données ne
+     passent par aucun service tiers. Vidée, cette constante fait
+     retomber le formulaire sur la messagerie du visiteur.
      ----------------------------------------------------------- */
-  var FORM_ENDPOINT = '';
+  var FORM_ENDPOINT = '/contact.php';
   var EMAIL = 'contact@alexcolas.com';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -145,7 +142,8 @@
       nom: form.nom.value.trim(),
       email: form.email.value.trim(),
       projet: form.projet.value,
-      message: form.message.value.trim()
+      message: form.message.value.trim(),
+      site_web: form.site_web ? form.site_web.value : ''
     };
 
     var bouton = form.querySelector('button[type="submit"]');
@@ -176,12 +174,24 @@
       body: JSON.stringify(donnees)
     })
       .then(function (reponse) {
-        if (!reponse.ok) throw new Error('Envoi refusé');
+        // Le serveur explique pourquoi il refuse : autant le relayer
+        // plutôt que d'afficher un message générique.
+        return reponse.json().then(
+          function (corps) { return { ok: reponse.ok, corps: corps || {} }; },
+          function () { return { ok: reponse.ok, corps: {} }; }
+        );
+      })
+      .then(function (resultat) {
+        if (!resultat.ok) throw new Error(resultat.corps.erreur || '');
         form.reset();
         definirStatut('Message reçu. Je vous réponds sous 24 heures.', 'ok');
       })
-      .catch(function () {
-        definirStatut('L’envoi a échoué. Écrivez-moi directement à ' + EMAIL + '.', 'error');
+      .catch(function (erreur) {
+        var raison = erreur && erreur.message ? erreur.message : '';
+        definirStatut(
+          (raison || 'L’envoi a échoué.') + ' Écrivez-moi directement à ' + EMAIL + '.',
+          'error'
+        );
       })
       .then(function () {
         bouton.disabled = false;

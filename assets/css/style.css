@@ -478,6 +478,15 @@ a{color:inherit}
 .field.is-invalid input,
 .field.is-invalid textarea{border-color:#8c2f26}
 
+/* Piège à robots : hors écran plutôt que display:none, que certains
+   robots savent détecter et contourner. */
+.pot-de-miel{
+  position:absolute;
+  left:-9999px;
+  width:1px;height:1px;
+  overflow:hidden;
+}
+
 .form__legal{
   margin:0;font-size:.82rem;line-height:1.5;
   color:var(--ink-soft);opacity:.8;
