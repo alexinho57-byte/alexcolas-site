@@ -208,8 +208,13 @@ a{color:inherit}
 .hero__inner{position:relative;z-index:1;padding-block:clamp(4rem,10vh,7rem)}
 
 /* Le texte occupe une colonne dont la largeur se calcule sur la part
-   de photo qui déborde dans la grille : ils ne se croisent jamais. */
-@media (min-width:761px){
+   de photo qui déborde dans la grille : ils ne se croisent jamais.
+
+   La condition de proportion compte autant que la largeur : sur un
+   écran plus haut que large, la colonne de photo devient étroite et
+   haute, et `cover` agrandit alors énormément le portrait pour la
+   remplir. Sous 4/5, on repasse donc à la photo posée au-dessus. */
+@media (min-width:761px) and (min-aspect-ratio:4/5){
   .hero__inner{
     display:grid;
     grid-template-columns:
@@ -249,7 +254,7 @@ a{color:inherit}
   color:var(--bone-hi);
   text-shadow:0 1px 24px rgba(16,27,46,.22);
 }
-@media (min-width:761px){
+@media (min-width:761px) and (min-aspect-ratio:4/5){
   .hero__title{font-size:clamp(2.15rem,4.4vw,3.9rem)}
 }
 
@@ -785,18 +790,22 @@ a{color:inherit}
   .burger{
     display:inline-flex;align-items:center;gap:.55rem;
     background:none;border:0;padding:.4rem 0;cursor:pointer;
+    min-height:44px;              /* cible tactile : moins, on rate le bouton */
     color:inherit;font-family:var(--font-mono);
     font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
   }
+  /* Hauteurs et positions en pixels entiers : à 1,5px une barre
+     tombe entre deux pixels et se dilue, l'autre s'aligne et reste
+     nette — elles n'avaient plus le même poids à l'écran. */
   .burger__bars{
-    width:20px;height:9px;position:relative;display:block;
+    width:20px;height:10px;position:relative;display:block;
   }
   .burger__bars::before,.burger__bars::after{
-    content:"";position:absolute;left:0;right:0;height:1.5px;background:currentColor;
+    content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;
     transition:transform .3s var(--ease),top .3s var(--ease);
   }
   .burger__bars::before{top:0}
-  .burger__bars::after{top:7.5px}
+  .burger__bars::after{top:8px}
   .burger[aria-expanded="true"] .burger__bars::before{top:4px;transform:rotate(45deg)}
   .burger[aria-expanded="true"] .burger__bars::after{top:4px;transform:rotate(-45deg)}
 
@@ -819,7 +828,9 @@ a{color:inherit}
   .site-header__inner{position:relative}
 }
 
-@media (max-width:760px){
+/* Complément exact de la règle ci-dessus : téléphones, et tout
+   écran en portrait, tablettes comprises. */
+@media (max-width:760px),(max-aspect-ratio:4/5){
   .hero{
     display:block;
     min-height:0;
@@ -831,10 +842,17 @@ a{color:inherit}
         var(--taupe) 66%,
         #96826f 100%);
   }
+  /* Largeur plafonnée et proportion fixe : sur une tablette, une bande
+     pleine largeur deviendrait large et courte, et le cadrage se
+     réduirait au front et aux yeux. Un téléphone, lui, ne dépasse pas
+     le plafond : son affichage ne bouge pas. */
   .hero__media{
     position:relative;
-    width:100%;
-    height:min(58vh,26rem);
+    width:min(100%,30rem);
+    margin-left:auto;
+    aspect-ratio:1 / 1.1;
+    height:auto;
+    max-height:58vh;
     top:auto;bottom:auto;
     z-index:0;
     margin-bottom:-2.5rem;
@@ -848,6 +866,22 @@ a{color:inherit}
   }
   .hero__inner{padding-block:0}
   .hero__title{max-width:none}
+}
+
+/* Dès que la photo ne touche plus le bord gauche de l'écran, ce bord
+   devient une arête visible : on le dissout comme sur la version large. */
+@media (min-width:481px) and (max-width:760px),
+       (min-width:481px) and (max-aspect-ratio:4/5){
+  .hero__media img{
+    -webkit-mask-image:
+      linear-gradient(to bottom,transparent 0,#000 8%,#000 60%,transparent 98%),
+      linear-gradient(to right,transparent 0,#000 20%);
+    mask-image:
+      linear-gradient(to bottom,transparent 0,#000 8%,#000 60%,transparent 98%),
+      linear-gradient(to right,transparent 0,#000 20%);
+    -webkit-mask-composite:source-in;
+    mask-composite:intersect;
+  }
   .hero__actions{margin-bottom:2.5rem}
   .btn{flex:1 1 auto}
   .facts{flex-direction:column;gap:.5rem}
