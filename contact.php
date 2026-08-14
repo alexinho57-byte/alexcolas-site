@@ -110,6 +110,7 @@ $suivi['nb']++;
 $projets_connus = array(
     'Site vitrine',
     'Landing page',
+    'Site e-commerce',
     "Refonte d'un site existant",
     'Je ne sais pas encore',
 );
