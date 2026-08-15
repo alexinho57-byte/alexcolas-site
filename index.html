@@ -31,10 +31,9 @@
 <link rel="stylesheet" href="assets/css/style.css?v=8">
 
 <!-- Données structurées : décrivent l'activité à Google dans un format
-     qu'il lit sans interprétation. Complétez streetAddress et postalCode
-     dès que l'adresse du siège est arrêtée — c'est aussi ce qui manque
-     dans les mentions légales, et ce qui conditionne la fiche Google
-     Business Profile. -->
+     qu'il lit sans interprétation. « address » est le siège réel, qui
+     doit rester exact ; « areaServed » est le marché visé. Les deux
+     n'ont pas à coïncider, et c'est bien le cas ici. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -54,7 +53,9 @@
   },
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Metz",
+    "streetAddress": "14 rue Principale",
+    "postalCode": "57530",
+    "addressLocality": "Silly-sur-Nied",
     "addressRegion": "Grand Est",
     "addressCountry": "FR"
   },
@@ -276,8 +277,9 @@
           avant, avec d'autres outils.
         </p>
         <p class="about__aside">
-          Je vis et je travaille à Metz. J'ai 45 ans, j'ai joué au football pendant des
-          années avant de raccrocher les crampons pour une raquette. On s'adapte.
+          Je travaille depuis la Moselle, tout près de Metz. J'ai 45 ans, j'ai joué au
+          football pendant des années avant de raccrocher les crampons pour une
+          raquette. On s'adapte.
         </p>
       </div>
     </div>
