@@ -307,6 +307,11 @@ a{color:inherit}
    SECTIONS GÉNÉRIQUES
    ============================================================= */
 .section{padding-block:clamp(5rem,11vw,8.5rem)}
+
+/* L'en-tête est collant et haut de 82px : sans cette réserve, une
+   ancre amène le haut de la section pile dessous, et son étiquette
+   disparaît derrière la barre. */
+.section[id],.hero[id]{scroll-margin-top:6rem}
 .section--bone{background:var(--bone);color:var(--ink)}
 .section--navy{background:var(--navy);color:var(--bone)}
 
@@ -385,6 +390,43 @@ a{color:inherit}
 }
 .offer__item h3{font-size:1.3rem;font-weight:600;margin:0}
 .offer__item p{margin:0;color:var(--ink-soft);max-width:58ch}
+
+/* =============================================================
+   À PROPOS
+   Le taupe du hero revient ici, et nulle part ailleurs : c'est le
+   fond du studio du portrait, donc la couleur des deux seuls
+   moments où la page parle de la personne. Dégradé volontairement
+   plus plat qu'au hero, pour ne pas passer pour un second hero.
+   ============================================================= */
+.about{
+  position:relative;
+  isolation:isolate;
+  color:var(--ink);
+  background:linear-gradient(158deg,#cbb9a8 0%,var(--taupe) 58%,#9c8975 100%);
+}
+
+.about__grid{display:grid;gap:clamp(2rem,4vw,3rem)}
+@media (min-width:900px){
+  .about__grid{
+    grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
+    column-gap:clamp(3rem,6vw,5.5rem);
+  }
+  .about__intro{position:sticky;top:7rem;align-self:start}
+}
+
+.about__intro .section__title{max-width:15ch;margin-bottom:0}
+
+.about__text p{margin:0;color:var(--ink-soft);max-width:60ch}
+.about__text p + p{margin-top:1.15rem}
+
+/* Le passage personnel change de registre : un filet le sépare du
+   propos professionnel plutôt qu'un simple retour à la ligne. */
+.about__text .about__aside{
+  margin-top:2rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--line-dark);
+  font-size:.96rem;
+}
 
 /* =============================================================
    MÉTHODE
