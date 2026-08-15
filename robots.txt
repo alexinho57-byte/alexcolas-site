@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Les mentions légales portent déjà une balise noindex. On laisse donc
+# les robots les explorer : bloquer l'accès ici les empêcherait de lire
+# cette balise, et la page pourrait rester indexée sans son contenu.
+
+Sitemap: https://alexcolas.com/sitemap.xml
