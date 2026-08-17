@@ -2,6 +2,9 @@
 # tout ce qui s'y trouve devient public. Gardez ce fichier hors du dépôt.
 LISEZ-MOI.md
 
+# Configuration de l'aperçu local (serveur de test) : sans intérêt en ligne.
+.claude/
+
 # Fichiers système
 .DS_Store
 Thumbs.db

@@ -19,21 +19,38 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0d1728">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=9">
+<!-- Polices servies depuis ce domaine : ni preconnect ni requête vers
+     Google. Les deux polices du premier écran sont préchargées pour
+     éviter que le texte change d'aspect une fois la page affichée. -->
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css?v=1">
+<link rel="stylesheet" href="/assets/css/style.css?v=10">
 
 <!-- Données structurées : décrivent l'activité à Google dans un format
      qu'il lit sans interprétation. « address » est le siège réel, qui
      doit rester exact ; « areaServed » est le marché visé. Les deux
-     n'ont pas à coïncider, et c'est bien le cas ici. -->
+     n'ont pas à coïncider, et c'est bien le cas ici.
+
+     Le téléphone est au format international : c'est sous cette forme
+     que Google le recoupe avec la fiche Google Business Profile et les
+     annuaires. Il doit rester STRICTEMENT identique partout (ici, dans
+     le pied de page, dans la section contact et dans les mentions
+     légales) — c'est le recoupement qui vaut, pas la présence seule.
+
+     RESTE À AJOUTER une fois la fiche Google Business Profile créée,
+     après la ligne "telephone" et en respectant les virgules :
+
+       "sameAs": ["URL publique de la fiche Google Business Profile"],
+
+     C'est cette clé qui soude l'entité « site » à l'entité « fiche »
+     dans l'index de Google. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,6 +60,7 @@
   "description": "Création de sites internet sur mesure à Metz : sites vitrines, landing pages, e-commerce et refontes pour indépendants, artisans et petites entreprises.",
   "url": "https://alexcolas.com/",
   "email": "contact@alexcolas.com",
+  "telephone": "+33617970274",
   "image": "https://alexcolas.com/assets/img/og-alexcolas.jpg",
   "logo": "https://alexcolas.com/apple-touch-icon.png",
   "inLanguage": "fr-FR",
@@ -118,10 +136,27 @@
 
   <!-- ────────────────────────────  HERO  ──────────────────────────── -->
   <section class="hero grain" id="top">
+    <!-- Cette photo est le plus gros élément du premier écran : c'est elle
+         que Google chronomètre (LCP). Le navigateur choisit la largeur
+         utile grâce à srcset, et le WebP divise le poids par trois.
+         Sur téléphone : 10 Ko au lieu de 157. -->
     <div class="hero__media">
-      <img src="assets/img/alexandre-colas.jpg"
-           alt="Portrait d'Alexandre Colas, créateur de sites internet freelance"
-           width="1000" height="1500" fetchpriority="high">
+      <picture>
+        <source type="image/webp"
+                sizes="(max-width: 600px) 100vw, (max-width: 1375px) 48vw, 660px"
+                srcset="/assets/img/alexandre-colas-400.webp 400w,
+                        /assets/img/alexandre-colas-600.webp 600w,
+                        /assets/img/alexandre-colas-800.webp 800w,
+                        /assets/img/alexandre-colas-1000.webp 1000w">
+        <img src="/assets/img/alexandre-colas-800.jpg"
+             sizes="(max-width: 600px) 100vw, (max-width: 1375px) 48vw, 660px"
+             srcset="/assets/img/alexandre-colas-400.jpg 400w,
+                     /assets/img/alexandre-colas-600.jpg 600w,
+                     /assets/img/alexandre-colas-800.jpg 800w,
+                     /assets/img/alexandre-colas-1000.jpg 1000w"
+             alt="Portrait d'Alexandre Colas, créateur de sites internet freelance"
+             width="1000" height="1500" fetchpriority="high">
+      </picture>
     </div>
 
     <div class="shell hero__inner">
@@ -171,9 +206,20 @@
       </div>
 
       <a class="showcase__shot" href="/portfolio" aria-label="Voir l'étude de cas du site Charlies Gabriella">
-        <img src="assets/img/charliesgi.jpg"
-             alt="Page d'accueil du site Charlies Gabriella : titre « Rituel du Portail du Lion 8/8 » et illustration d'un lion"
-             width="1440" height="1000" loading="lazy">
+        <picture>
+          <source type="image/webp"
+                  sizes="(max-width: 900px) 100vw, 50vw"
+                  srcset="/assets/img/charliesgi-720.webp 720w,
+                          /assets/img/charliesgi-1080.webp 1080w,
+                          /assets/img/charliesgi-1440.webp 1440w">
+          <img src="/assets/img/charliesgi-1080.jpg"
+               sizes="(max-width: 900px) 100vw, 50vw"
+               srcset="/assets/img/charliesgi-720.jpg 720w,
+                       /assets/img/charliesgi-1080.jpg 1080w,
+                       /assets/img/charliesgi-1440.jpg 1440w"
+               alt="Page d'accueil du site Charlies Gabriella : titre « Rituel du Portail du Lion 8/8 » et illustration d'un lion"
+               width="1440" height="1000" loading="lazy">
+        </picture>
       </a>
     </div>
   </section>
@@ -307,6 +353,12 @@
           avec un premier avis et une estimation.
         </p>
         <dl class="contact__details">
+          <!-- Le téléphone passe avant l'e-mail : un artisan qui cherche un
+               prestataire local appelle avant d'écrire. -->
+          <div>
+            <dt>Téléphone</dt>
+            <dd><a href="tel:+33617970274">06&nbsp;17&nbsp;97&nbsp;02&nbsp;74</a></dd>
+          </div>
           <div>
             <dt>E-mail</dt>
             <dd><a href="mailto:contact@alexcolas.com">contact@alexcolas.com</a></dd>
@@ -378,12 +430,13 @@
       <a href="/refonte-site-internet">Refonte</a>
       <a href="/portfolio">Portfolio</a>
       <a href="/mentions-legales">Mentions légales</a>
+      <a href="tel:+33617970274">06&nbsp;17&nbsp;97&nbsp;02&nbsp;74</a>
       <a href="mailto:contact@alexcolas.com">contact@alexcolas.com</a>
     </nav>
     <p class="site-footer__legal">© <span id="annee">2026</span> Alexandre Colas — Création de sites internet à Metz</p>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=9"></script>
+<script src="/assets/js/main.js?v=10"></script>
 </body>
 </html>

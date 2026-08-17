@@ -190,6 +190,12 @@ a{color:inherit}
   width:min(48vw,660px);
   z-index:-1;
 }
+/* <picture> est « inline » par défaut : sans cette règle, le
+   height:100% de l'image se mesurerait sur l'enveloppe au lieu du
+   conteneur, et le portrait s'effondrerait. */
+.hero__media picture{display:block;width:100%;height:100%}
+.showcase__shot picture,.case__shot picture{display:block}
+
 .hero__media img{
   width:100%;height:100%;
   object-fit:cover;

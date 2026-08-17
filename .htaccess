@@ -19,6 +19,13 @@ Options -Indexes
   # ── Fichiers à ne jamais servir ────────────────────────────
   # Le déploiement Git dépose un dossier .git dans public_html :
   # sans cette règle, l'historique complet du site est lisible.
+  #
+  # Exception : /.well-known/ doit rester accessible. C'est par ce
+  # dossier que Let's Encrypt renouvelle le certificat HTTPS et que
+  # certaines vérifications de propriété de domaine se font. Le
+  # bloquer casse le renouvellement — en silence, jusqu'au jour où
+  # le certificat expire.
+  RewriteRule ^\.well-known/ - [L]
   RewriteRule (^|/)\. - [F]
 
   # ── Adresses sans .html ────────────────────────────────────

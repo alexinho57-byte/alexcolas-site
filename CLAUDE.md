@@ -55,6 +55,11 @@ laquelle Formspree a été abandonné au profit d'un script PHP maison.
 - **Site statique HTML / CSS / JS.** Pas de framework, pas de build step, pas de
   gestionnaire de paquets. Ne pas introduire React, Tailwind, Vite ou un générateur
   de site statique sans discussion préalable explicite.
+- **Aucune ressource tierce au chargement.** Les polices sont auto-hébergées
+  (`assets/fonts/`, déclarées dans `assets/css/fonts.css`). Ne jamais rebrancher
+  un CDN de polices ou de scripts : c'est à la fois une perte de performance et
+  une contradiction avec les mentions légales, qui affirment qu'aucune donnée
+  ne part vers un tiers.
 - **Hébergement : Hostinger.** HTTPS forcé.
 - **Déploiement continu :** `git push` sur GitHub → webhook Hostinger → mise en ligne.
   Un commit poussé est un commit en production. Vérifier avant de pousser.
@@ -69,14 +74,17 @@ laquelle Formspree a été abandonné au profit d'un script PHP maison.
 | `/site-vitrine` | Page de service — ciblage « site vitrine Metz » |
 | `/site-ecommerce` | Page de service — ciblage « site e-commerce Metz » (mentionne WooCommerce, ajouté à la demande d'Alexandre) |
 | `/refonte-site-internet` | Page de service — ciblage « refonte site internet Metz » |
-| `/mentions-legales` | Mentions légales |
-| `/404` | Page d'erreur |
+| `/mentions-legales` | Mentions légales — **indexable** (voir §8) |
+| `/404` | Page d'erreur — seule page en `noindex` |
 
 **Conventions :**
 
 - URLs **sans extension `.html`**. Les redirections 301 sont en place — toute nouvelle
   page doit suivre la même règle et être ajoutée aux redirections.
 - Toute nouvelle page doit être ajoutée au `sitemap.xml`.
+- **Chemins d'assets toujours absolus** (`/assets/…`, `/favicon.svg`). Les chemins
+  relatifs fonctionnent à la racine mais cassent dès qu'une URL gagne un niveau
+  de profondeur.
 - Le header, le footer, les balises meta et le JSON-LD sont **dupliqués dans chaque
   fichier** (pas de framework). Une modification de l'un de ces blocs doit être
   répercutée sur **toutes** les pages, y compris `/404` et `/mentions-legales`.
@@ -115,6 +123,25 @@ laquelle Formspree a été abandonné au profit d'un script PHP maison.
   entre les NAP — nom, adresse, téléphone — du site et de la fiche).
 - Pages de service dédiées aux requêtes locales (cf. section 5).
 
+**Décisions arrêtées (audit SEO local du 17 août 2026) :**
+
+- **Les mentions légales ont vocation à être indexées** — Google s'appuie sur
+  cette page pour confirmer l'identité de l'entité, et une page légale complète
+  est un signal de confiance, pas un déchet. Elles restent cependant en `noindex`
+  et hors `sitemap.xml` **tant que le SIRET n'est pas renseigné** : faire indexer
+  une page légale portant « à compléter » produit exactement l'effet inverse.
+  Le jour où le SIRET existe : retirer la balise dans `mentions-legales.html`
+  et décommenter le bloc déjà présent dans `sitemap.xml`.
+- **Le nœud `provider` doit être redéclaré sur chaque page de service.** Google
+  lit chaque page isolément : une référence `@id` vers un nœud déclaré uniquement
+  sur l'accueil pointe dans le vide. Le NAP complet (adresse, téléphone) reste
+  tenu à un seul endroit, l'accueil, pour éviter toute divergence.
+- ❌ **Ne pas ajouter de balisage `FAQPage`.** Les résultats enrichis FAQ ne sont
+  plus affichés par Google. Les FAQ visibles restent utiles pour le lecteur —
+  c'est leur seule justification, et elle suffit.
+- ❌ **Ne jamais déclarer une adresse à Metz** tant que le siège est à
+  Silly-sur-Nied. Google contrôle, et une suspension de fiche se récupère mal.
+
 **Règles pour toute nouvelle page :**
 
 1. Une intention de recherche par page, ancrée géographiquement.
@@ -133,10 +160,34 @@ laquelle Formspree a été abandonné au profit d'un script PHP maison.
 
 ## 10. État et chantiers en cours
 
-**En attente :**
+**En attente — ne dépend que d'Alexandre :**
 
-- [ ] **Mentions légales** — quasi complètes. Manquent le **SIRET** et la **forme
-      juridique précise**. Ne pas inventer ces valeurs : les demander à Alexandre.
+- [x] ~~**Numéro de téléphone**~~ — fait le 17/08/2026. **06 17 97 02 74**, présent
+      dans le pied de page des 7 pages, dans la section contact de l'accueil, dans
+      les mentions légales et en clé `telephone` du JSON-LD (format international
+      `+33617970274`). ⚠️ Si le numéro change, il doit être modifié **partout à la
+      fois** : c'est le recoupement entre le site, la fiche Google et les annuaires
+      qui vaut, pas la présence seule. Un numéro divergent est pire qu'absent.
+- [ ] **SIRET.** Alexandre n'en a pas encore au 17/08/2026 — l'activité n'est donc
+      pas immatriculée. C'est un préalable légal à l'affichage de mentions légales
+      complètes (et à la facturation). Tant qu'il manque, la page reste en `noindex`.
+      Le **RCS** ne s'applique probablement pas : il vise les commerçants, alors que
+      la création de sites est une prestation de services. À confirmer au moment de
+      l'immatriculation ; si c'est bien le cas, supprimer la ligne plutôt que la
+      laisser vide.
+- [ ] **Fiche Google Business Profile.** L'adresse du siège (Silly-sur-Nied) est à
+      ~20 km de Metz : le pack local se classe en grande partie sur la proximité
+      géographique, donc le bloc carte de Metz restera difficile à atteindre. Trois
+      options, par ordre de sérieux : **(1)** fiche en zone de service, adresse
+      masquée, zones déclarées Metz + Moselle — configuration honnête pour un
+      freelance qui se déplace ; **(2)** domiciliation ou bureau partagé à Metz avec
+      réception de courrier, seule voie légitime pour une adresse messine, à coût
+      réel ; **(3)** jamais d'adresse inventée. Une fois la fiche choisie, ajouter
+      son URL publique en `sameAs` dans le JSON-LD de l'accueil.
+- [ ] **Avis Google.** Second facteur du pack local, et le seul actionnable
+      immédiatement. Charlies Gabriella devrait laisser le premier.
+      Ne jamais inventer ces valeurs. Les champs restants sont marqués `.todo`
+      dans `mentions-legales.html`.
 - [ ] **Indexation** — vérifier dans Search Console (rapport *Pages* → onglets
       *Indexées* / *Non indexées*). Les recherches `site:alexcolas.com` sur Google,
       Bing et DuckDuckGo échouent (CAPTCHA / bandeau de consentement) : ne pas
@@ -144,10 +195,18 @@ laquelle Formspree a été abandonné au profit d'un script PHP maison.
 
 **Pistes identifiées, non engagées :**
 
-- Enrichir le portfolio à mesure que les projets sortent.
-- Performance / Core Web Vitals : compression des images, CSS critique.
+- **Page `/landing-page`.** C'est le seul des quatre services sans page dédiée,
+  alors que c'est la seule réalisation documentée. La requête « landing page Metz »
+  ne pèse rien en volume, mais la page donnerait un point d'atterrissage à mailler
+  depuis le portfolio et depuis l'accueil. À rédiger avec Alexandre.
+- Enrichir le portfolio à mesure que les projets sortent. Un portfolio à un projet
+  est le plafond actuel de l'E-E-A-T : chaque livraison future vaut plus qu'un mois
+  d'optimisation technique.
+- CSS critique en ligne (les images et les polices ont été traitées le 17/08/2026).
 - Pages locales supplémentaires (Thionville, Nancy) si la stratégie Metz porte.
 
 ---
 
-*Dernière mise à jour : à renseigner à chaque modification de ce fichier.*
+*Dernière mise à jour : 17 août 2026 — audit SEO local : polices auto-hébergées,
+images WebP + srcset, `provider` JSON-LD redéclaré, mentions légales indexables,
+chemins d'assets uniformisés, `.well-known` débloqué dans `.htaccess`.*

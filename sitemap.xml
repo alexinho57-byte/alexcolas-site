@@ -3,14 +3,14 @@
 
   <url>
     <loc>https://alexcolas.com/</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://alexcolas.com/portfolio</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -18,26 +18,41 @@
 
   <url>
     <loc>https://alexcolas.com/site-vitrine</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://alexcolas.com/site-ecommerce</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://alexcolas.com/refonte-site-internet</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- mentions-legales et 404 sont volontairement absentes :
-       la première est en noindex, la seconde n'est pas une page. -->
+  <!-- Les mentions légales ont vocation à être indexées : Google s'en sert
+       pour confirmer l'identité de l'entité (nom, adresse, SIRET), et une
+       page légale complète est un signal de confiance en référencement
+       local. Elle reste hors sitemap et en noindex tant que le SIRET n'est
+       pas renseigné — une page légale incomplète produit l'effet inverse.
+       → Le jour où le SIRET est là : décommenter ce bloc et retirer la
+         balise noindex dans mentions-legales.html.
+
+  <url>
+    <loc>https://alexcolas.com/mentions-legales</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  -->
+
+  <!-- La page 404 reste absente : ce n'est pas une page de contenu. -->
 
 </urlset>

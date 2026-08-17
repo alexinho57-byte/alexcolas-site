@@ -15,10 +15,13 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0d1728">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=9">
+<!-- Polices servies depuis ce domaine : ni preconnect ni requête vers
+     Google. Les deux polices du premier écran sont préchargées pour
+     éviter que le texte change d'aspect une fois la page affichée. -->
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css?v=1">
+<link rel="stylesheet" href="/assets/css/style.css?v=10">
 </head>
 <body>
 
@@ -92,12 +95,13 @@
       <a href="/refonte-site-internet">Refonte</a>
       <a href="/portfolio">Portfolio</a>
       <a href="/mentions-legales">Mentions légales</a>
+      <a href="tel:+33617970274">06&nbsp;17&nbsp;97&nbsp;02&nbsp;74</a>
       <a href="mailto:contact@alexcolas.com">contact@alexcolas.com</a>
     </nav>
     <p class="site-footer__legal">© <span id="annee">2026</span> Alexandre Colas — Création de sites internet à Metz</p>
   </div>
 </footer>
 
-<script src="/assets/js/main.js?v=9"></script>
+<script src="/assets/js/main.js?v=10"></script>
 </body>
 </html>

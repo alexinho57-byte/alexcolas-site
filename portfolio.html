@@ -18,16 +18,19 @@
 <meta property="og:image:height" content="1000">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0d1728">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=9">
+<!-- Polices servies depuis ce domaine : ni preconnect ni requête vers
+     Google. Les deux polices du premier écran sont préchargées pour
+     éviter que le texte change d'aspect une fois la page affichée. -->
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css?v=1">
+<link rel="stylesheet" href="/assets/css/style.css?v=10">
 </head>
 <body>
 
@@ -83,9 +86,20 @@
     <div class="shell">
 
       <figure class="case__shot">
-        <img src="assets/img/charliesgi.jpg"
-             alt="Page d'accueil du site Charlies Gabriella : titre « Rituel du Portail du Lion 8/8 », illustration d'un lion, bouton de réservation et barre d'achat"
-             width="1440" height="1000" loading="lazy">
+        <picture>
+          <source type="image/webp"
+                  sizes="(max-width: 1100px) 100vw, 1040px"
+                  srcset="/assets/img/charliesgi-720.webp 720w,
+                          /assets/img/charliesgi-1080.webp 1080w,
+                          /assets/img/charliesgi-1440.webp 1440w">
+          <img src="/assets/img/charliesgi-1080.jpg"
+               sizes="(max-width: 1100px) 100vw, 1040px"
+               srcset="/assets/img/charliesgi-720.jpg 720w,
+                       /assets/img/charliesgi-1080.jpg 1080w,
+                       /assets/img/charliesgi-1440.jpg 1440w"
+               alt="Page d'accueil du site Charlies Gabriella : titre « Rituel du Portail du Lion 8/8 », illustration d'un lion, bouton de réservation et barre d'achat"
+               width="1440" height="1000" fetchpriority="high">
+        </picture>
       </figure>
 
       <div class="case__body">
@@ -188,12 +202,13 @@
       <a href="/refonte-site-internet">Refonte</a>
       <a href="/portfolio" aria-current="page">Portfolio</a>
       <a href="/mentions-legales">Mentions légales</a>
+      <a href="tel:+33617970274">06&nbsp;17&nbsp;97&nbsp;02&nbsp;74</a>
       <a href="mailto:contact@alexcolas.com">contact@alexcolas.com</a>
     </nav>
     <p class="site-footer__legal">© <span id="annee">2026</span> Alexandre Colas — Création de sites internet à Metz</p>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=9"></script>
+<script src="/assets/js/main.js?v=10"></script>
 </body>
 </html>
