@@ -1,6 +1,17 @@
 User-agent: *
 Allow: /
 
+# Les sites de démonstration de /demos/ (Brasa, Lexora) sont bâtis autour
+# d'entreprises qui n'existent pas : coordonnées, tarifs et avis y sont
+# fictifs. Ils ne doivent jamais être indexés.
+#
+# Pour autant, on ne les bloque PAS ici, et c'est délibéré : un Disallow
+# empêcherait Google de lire la balise noindex que porte chaque page, et
+# les adresses pourraient rester indexées à vide — puisqu'elles sont
+# liées depuis le portfolio. Le noindex seul est la bonne réponse ; le
+# Disallow serait exactement la mauvaise. Même raisonnement que pour les
+# mentions légales ci-dessous.
+
 # Aucune page n'est bloquée ici. Les mentions légales portent une balise
 # noindex temporaire (le SIRET manque) : on laisse donc les robots les
 # explorer, car bloquer l'accès les empêcherait de lire cette balise.

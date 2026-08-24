@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Réserver &amp; Contact — BRASA · Steak &amp; Fire, Metz</title>
+<meta name="description" content="Réservez votre table chez BRASA — Steak &amp; Fire à Metz. Horaires, adresse, accès, privatisation et contact.">
+<meta name="theme-color" content="#0A0908">
+<link rel="icon" href="assets/logo/web/brasa-monogram.png">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/css/brasa.css?v=11">
+</head>
+<body>
+<!-- Bandeau de démonstration : injecté sur chaque page. Il ne doit jamais
+     être retiré tant que ce dossier contient des données fictives. -->
+<div class="demo-flag" role="note">
+  <span class="demo-flag__dot" aria-hidden="true"></span>
+  <p><strong>Site de démonstration</strong> — ce restaurant n'existe pas. Contenus fictifs.</p>
+  <a href="https://alexcolas.com/portfolio">Retour au portfolio</a>
+</div>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="index.html" aria-label="BRASA — Steak &amp; Fire, accueil">
+      <img class="mono" src="assets/logo/web/brasa-monogram.png" alt="">
+      <span class="brand__div" aria-hidden="true"></span>
+      <span>
+        <img class="word" src="assets/logo/web/brasa-word-only.png" alt="BRASA">
+        <span class="brand__sub">Steak &amp; Fire</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="carte.html">La Carte</a>
+      <a href="experience.html">L'Expérience</a>
+      <a href="galerie.html">Galerie</a>
+    </nav>
+    <a class="btn btn--solid" href="reservation.html" aria-current="page">Réserver</a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="index.html">Accueil</a>
+  <a href="carte.html">La Carte</a>
+  <a href="experience.html">L'Expérience</a>
+  <a href="galerie.html">Galerie</a>
+  <a class="btn btn--solid" href="reservation.html">Réserver une table</a>
+  <p class="drawer__foot">
+    9 rue de la Démonstration · 57000 Metz<br>
+    <a href="tel:+33300000000">+33 (0)3 87 00 00 00</a>
+  </p>
+</div>
+
+<main id="main">
+
+<!-- ============ HERO PAGE ============ -->
+<section class="phero">
+  <div class="phero__media">
+    <img src="assets/img/web/table-setting.webp" alt="Table dressée chez BRASA : serviette brodée, couverts cuivre, verrerie" fetchpriority="high">
+  </div>
+  <div class="wrap phero__in">
+    <p class="eyebrow">Réservation &amp; Contact</p>
+    <h1 class="display d1">Une table<br><em>vous attend.</em></h1>
+    <p class="lede">
+      Vingt-huit couverts seulement, et un seul service par table.
+      Mieux vaut prendre les devants.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FORMULAIRE ============ -->
+<section class="section">
+  <div class="wrap split split--wide-l" style="align-items:start">
+
+    <!-- Colonne formulaire -->
+    <div>
+      <form class="resa" data-resa novalidate>
+        <div class="resa__head">
+          <img src="assets/logo/web/brasa-monogram.png" alt="">
+          <span>Réservation en ligne · Confirmation immédiate</span>
+        </div>
+
+        <div class="fgrid fgrid--3">
+          <div class="field">
+            <label for="resa-couverts">Couverts</label>
+            <select id="resa-couverts" name="couverts">
+              <option value="1">1 personne</option>
+              <option value="2" selected>2 personnes</option>
+              <option value="3">3 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="5">5 personnes</option>
+              <option value="6">6 personnes</option>
+              <option value="7">7 personnes</option>
+              <option value="8">8 personnes</option>
+              <option value="9+">9 et plus — nous contacter</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="resa-date">Date</label>
+            <input type="date" id="resa-date" name="date">
+          </div>
+
+          <div class="field">
+            <label for="resa-service">Service</label>
+            <select id="resa-service" name="service">
+              <option value="soir" selected>Dîner</option>
+              <option value="midi">Déjeuner</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="slots">
+          <span class="slots__label">Créneaux disponibles</span>
+          <div class="slots__grid"></div>
+          <input type="hidden" id="resa-heure" name="heure">
+        </div>
+
+        <div class="fgrid fgrid--2 mt-lg">
+          <div class="field">
+            <label for="resa-nom">Nom</label>
+            <input type="text" id="resa-nom" name="nom" placeholder="Votre nom" autocomplete="family-name">
+          </div>
+          <div class="field">
+            <label for="resa-tel">Téléphone</label>
+            <input type="tel" id="resa-tel" name="tel" placeholder="06 00 00 00 00" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="field mt-lg">
+          <label for="resa-email">E-mail</label>
+          <input type="email" id="resa-email" name="email" placeholder="vous@exemple.fr" autocomplete="email">
+        </div>
+
+        <div class="field mt-lg">
+          <label for="resa-note">Une précision ? (facultatif)</label>
+          <textarea id="resa-note" name="note" placeholder="Allergie, occasion particulière, pièce d'exception à réserver, table près du feu…"></textarea>
+        </div>
+
+        <div class="resa__foot">
+          <p class="resa__legal">
+            Maquette de démonstration : aucune donnée n'est envoyée ni enregistrée.
+          </p>
+          <button type="submit" class="btn btn--solid">Confirmer ma demande</button>
+        </div>
+
+        <p class="msg" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="mnote" style="margin-top:2rem">
+        <b>Groupes &amp; privatisation.</b> À partir de 9 personnes, ou pour privatiser
+        la salle entière (20 couverts et plus), écrivez-nous à
+        <a href="mailto:evenements@brasa-metz.fr" class="copper">evenements@brasa-metz.fr</a>
+        ou appelez-nous : nous construisons le menu avec vous.
+      </p>
+    </div>
+
+    <!-- Colonne infos -->
+    <aside class="stack-lg">
+      <div class="frame frame--sq frame--edge" data-r="img">
+        <img src="assets/img/web/bar-lounge.webp" alt="Bar lounge de BRASA : comptoir de marbre noir, tabourets cuir et cuivre" loading="lazy">
+        <p class="frame__cap">9 rue de la Démonstration · 57000 Metz</p>
+      </div>
+
+      <div>
+        <h2 class="display d4">Horaires</h2>
+        <ul class="mt-lg">
+          <li class="info-row" style="display:flex;justify-content:space-between;gap:2rem;padding-block:.5rem;border-bottom:1px solid rgba(255,255,255,.05)">
+            <span>Lundi</span><span style="color:var(--ivory-30)">Fermé</span>
+          </li>
+          <li style="display:flex;justify-content:space-between;gap:2rem;padding-block:.5rem;border-bottom:1px solid rgba(255,255,255,.05)">
+            <span>Mardi — Samedi</span><span style="color:var(--ivory-50)">12h – 14h · 19h – 22h30</span>
+          </li>
+          <li style="display:flex;justify-content:space-between;gap:2rem;padding-block:.5rem;border-bottom:1px solid rgba(255,255,255,.05)">
+            <span>Dimanche</span><span style="color:var(--ivory-50)">19h – 22h</span>
+          </li>
+        </ul>
+        <p class="body mt-lg" style="font-size:.88rem">
+          Dernière commande 30 minutes avant la fermeture.
+          Fermetures annuelles : première quinzaine d'août, entre Noël et le Jour de l'an.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="display d4">Nous joindre</h2>
+        <p class="body mt-lg">
+          <a href="tel:+33300000000" class="copper">+33 (0)3 87 00 00 00</a><br>
+          <a href="mailto:contact@brasa-metz.fr">contact@brasa-metz.fr</a>
+        </p>
+        <p class="body mt-lg" style="font-size:.88rem">
+          Le téléphone est décroché aux heures de service. En dehors,
+          laissez un message : nous rappelons dans la journée.
+        </p>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ============ INFOS PRATIQUES ============ -->
+<section class="section--tight">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:clamp(2.5rem,6vh,4rem)">
+      <p class="eyebrow" data-r>Informations pratiques</p>
+      <h2 class="display d3 mt-lg" data-r data-d="1">Avant de venir.</h2>
+    </div>
+
+    <figure class="frame frame--edge" style="aspect-ratio:16/9;margin-bottom:clamp(3rem,7vh,5rem)" data-r="img">
+      <img src="assets/img/web/facade-nuit.webp" alt="Façade de BRASA la nuit : enseigne cuivre éclairée, entrée et vitrine sur la salle" loading="lazy">
+      <figcaption class="frame__cap">9 rue de la Démonstration — l'entrée se trouve sous l'enseigne</figcaption>
+    </figure>
+
+    <div class="infos">
+      <div class="info" data-r>
+        <h3>Accès &amp; stationnement</h3>
+        <p>
+          En plein centre-ville, à cinq minutes à pied de la place Saint-Louis
+          et du Marché Couvert. Parking Cathédrale et parking République à moins
+          de 300 m. Arrêt Metz-République (Mettis A &amp; B) à 200 m.
+        </p>
+      </div>
+
+      <div class="info" data-r data-d="1">
+        <h3>Tenue &amp; ambiance</h3>
+        <p>
+          Pas de code vestimentaire strict, mais une salle intimiste et une
+          lumière basse : on vient plutôt élégant. Musique discrète, jamais forte.
+          Établissement non-fumeur, terrasse à l'arrière aux beaux jours.
+        </p>
+      </div>
+
+      <div class="info" data-r data-d="2">
+        <h3>Enfants &amp; régimes</h3>
+        <p>
+          Les enfants sont bienvenus au déjeuner ; chaises hautes disponibles.
+          Une option végétarienne et une option sans gluten figurent toujours à la
+          carte. Prévenez-nous à la réservation pour toute allergie.
+        </p>
+      </div>
+
+      <div class="info" data-r data-d="3">
+        <h3>Annulation &amp; retard</h3>
+        <p>
+          Annulation libre jusqu'à 24 h avant. Au-delà de 20 minutes de retard sans
+          nouvelles, la table peut être réattribuée. Pour les pièces d'exception
+          réservées à l'avance, une empreinte bancaire peut être demandée.
+        </p>
+      </div>
+    </div>
+
+    <!-- Carte (chargement au clic, sans cookie tiers) -->
+    <div class="mapframe mt-xl" data-map
+         data-src="https://www.google.com/maps?q=9+rue+des+Clercs,+57000+Metz,+France&hl=fr&z=16&output=embed">
+      <img src="assets/img/web/detail-fire.webp" alt=""
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28">
+      <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:2rem">
+        <div>
+          <p class="tiny">9 rue de la Démonstration · 57000 Metz</p>
+          <button class="btn mt-lg" type="button" data-map-load>Afficher le plan</button>
+          <p class="tiny mt-lg" style="letter-spacing:.1em;text-transform:none;opacity:.55;max-width:38ch">
+            Le plan est fourni par Google Maps et dépose des cookies tiers.
+            Il ne se charge qu'à votre demande.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-lg center">
+      <a class="link-u" href="https://www.google.com/maps/search/?api=1&query=9+rue+des+Clercs,+57000+Metz"
+         target="_blank" rel="noopener">Ouvrir l'itinéraire</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div class="ftr__brand">
+        <img src="assets/logo/web/brasa-stacked.png" alt="BRASA — Steak &amp; Fire">
+        <p>Restaurant de viandes d'exception<br>cuites à la braise, à Metz.</p>
+      </div>
+      <div>
+        <h4>Nous trouver</h4>
+        <p>
+          9 rue de la Démonstration<br>
+          57000 Metz<br>
+          <a href="tel:+33300000000">+33 (0)3 87 00 00 00</a><br>
+          <a href="mailto:contact@brasa-metz.fr">contact@brasa-metz.fr</a>
+        </p>
+      </div>
+      <div>
+        <h4>Horaires</h4>
+        <ul>
+          <li>Lundi — <span>Fermé</span></li>
+          <li>Mar – Sam — <span>12h–14h · 19h–22h30</span></li>
+          <li>Dimanche — <span>19h–22h</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="carte.html">La Carte</a></li>
+          <li><a href="experience.html">L'Expérience</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="reservation.html">Réserver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__bot">
+      <p>© <span data-year>2026</span> BRASA — Steak &amp; Fire · Metz</p>
+      <p>L'abus d'alcool est dangereux pour la santé. À consommer avec modération.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/brasa.js?v=11" defer></script>
+</body>
+</html>

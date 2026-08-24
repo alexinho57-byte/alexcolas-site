@@ -75,7 +75,9 @@ laquelle Formspree a été abandonné au profit d'un script PHP maison.
 | `/site-ecommerce` | Page de service — ciblage « site e-commerce Metz » (mentionne WooCommerce, ajouté à la demande d'Alexandre) |
 | `/refonte-site-internet` | Page de service — ciblage « refonte site internet Metz » |
 | `/mentions-legales` | Mentions légales — **indexable** (voir §8) |
-| `/404` | Page d'erreur — seule page en `noindex` |
+| `/404` | Page d'erreur — `noindex` |
+| `/demos/brasa/` | Site de démonstration (restaurant fictif) — `noindex`, voir §9 |
+| `/demos/lexora/` | Site de démonstration (cabinet fictif) — `noindex`, voir §9 |
 
 **Conventions :**
 
@@ -190,6 +192,43 @@ courant et légitime — à la seule condition d'être annoncé, ce qui est fait
 **Ordre d'affichage : le réel d'abord, la démonstration ensuite.** Ne pas
 intercaler. Un futur projet livré s'insère avant Brasa, pas à la fin.
 
+### Les démonstrations en ligne — `/demos/` (24/08/2026)
+
+Brasa et Lexora sont consultables depuis le portfolio (« Ouvrir la démonstration »).
+Une capture ne prouve pas un moteur de réservation ni une page honoraires : il
+fallait qu'on puisse cliquer. Cinq règles encadrent leur mise en ligne, et **aucune
+ne doit sauter** :
+
+1. **`noindex, nofollow` sur chacune des 11 pages.** Un faux restaurant et un faux
+   cabinet rattachés à `alexcolas.com` brouilleraient l'entité que le SEO local
+   cherche justement à faire reconnaître.
+2. **Pas de `Disallow` dans `robots.txt`** — et c'est délibéré. Bloquer le crawl
+   empêcherait Google de *lire* le `noindex`, et les adresses, liées depuis le
+   portfolio, pourraient rester indexées à vide. Le `noindex` seul est la bonne
+   réponse. Même raisonnement que pour les mentions légales.
+3. **Aucune donnée structurée.** Les blocs JSON-LD (`Restaurant`, etc.) ont été
+   retirés des deux projets. Ne jamais les réintroduire ici.
+4. **Bandeau de démonstration fixé en haut de chaque page** (`.demo-flag`), avec
+   retour vers le portfolio. Les en-têtes des deux sites étant en position fixe,
+   ils sont décalés de `--demo-flag-h`. Ne pas retirer ce décalage.
+5. **Aucune ressource tierce**, comme sur le reste du domaine : polices
+   auto-hébergées dans chaque démo, et le cadre OpenStreetMap de la page contact
+   de Lexora a été supprimé (requête tierce + marqueur sur une adresse réelle).
+
+**Données neutralisées — ne pas les restaurer :**
+
+- Adresses : « rue des Clercs » (une vraie rue de Metz) → **« rue de la
+  Démonstration »**, qui se signale comme fictive même hors contexte.
+- Lexora : les quatre portraits étaient des **photos de personnes réelles** issues
+  de banques d'images, sous des identités d'avocats inventées, avec numéros de
+  toque et dates de serment fabriqués. Remplacés par des monogrammes
+  (`.person__portrait--vide`) et la mention « Profil fictif ».
+- Brasa : les trois avis cinq étoiles portent « — *avis fictif* ».
+
+⚠️ Les dossiers sources restent hors dépôt (`Desktop/claude code/`). Le dépôt ne
+contient que les fichiers réellement servis : pour Brasa, uniquement
+`assets/img/web/` et `assets/logo/web/` — les originaux pèsent 40 Mo.
+
 ## 10. État et chantiers en cours
 
 **En attente — ne dépend que d'Alexandre :**
@@ -239,8 +278,9 @@ intercaler. Un futur projet livré s'insère avant Brasa, pas à la fin.
 
 ---
 
-*Dernière mise à jour : 24 août 2026 — ajout de Brasa et Lexora au portfolio comme
-projets de démonstration, et refonte de la §9 (trois statuts de projet, badge plein
-pour les démonstrations). Précédemment, le 17/08/2026 : audit SEO local — téléphone
-partout, polices auto-hébergées, images WebP + srcset, `provider` JSON-LD redéclaré,
-chemins d'assets uniformisés, `.well-known` débloqué dans `.htaccess`.*
+*Dernière mise à jour : 24 août 2026 — mise en ligne des deux démonstrations dans
+`/demos/` (noindex, bandeau, données fictives neutralisées, polices auto-hébergées),
+et refonte de la §9 : trois statuts de projet, badge plein pour les démonstrations.
+Précédemment, le 17/08/2026 : audit SEO local — téléphone partout, polices
+auto-hébergées, images WebP + srcset, `provider` JSON-LD redéclaré, chemins d'assets
+uniformisés, `.well-known` débloqué dans `.htaccess`.*

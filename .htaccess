@@ -28,6 +28,16 @@ Options -Indexes
   RewriteRule ^\.well-known/ - [L]
   RewriteRule (^|/)\. - [F]
 
+  # ── Démonstrations ─────────────────────────────────────────
+  # Les sites de /demos/ sont des projets complets, servis tels
+  # qu'ils ont été construits : leurs liens internes pointent vers
+  # des .html. On les laisse donc en dehors des règles de réécriture
+  # ci-dessous, qui leur imposeraient une redirection 301 à chaque
+  # clic. Ces pages portent toutes un noindex et sont exclues dans
+  # robots.txt : elles contiennent des données fictives et ne doivent
+  # jamais entrer dans l'index.
+  RewriteRule ^demos/ - [L]
+
   # ── Adresses sans .html ────────────────────────────────────
   # Le garde REDIRECT_STATUS empêche ces règles de s'appliquer
   # aux requêtes internes : sans lui, la page 404 partirait en
