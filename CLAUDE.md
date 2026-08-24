@@ -152,11 +152,43 @@ laquelle Formspree a été abandonné au profit d'un script PHP maison.
 
 ## 9. Portfolio
 
-- **Charlies Gabriella** — landing page développée à la main, avec système de paiement
-  **Stripe** intégré. Seul projet réel documenté à ce jour.
-  ⚠️ Ce n'est **pas** un site Shopify. Ne pas le décrire comme tel.
-- Ne jamais inventer, gonfler ou illustrer une réalisation fictive. Le portfolio ne
-  contient que des projets réellement livrés.
+**Règle absolue : ne jamais présenter un projet pour ce qu'il n'est pas.**
+Le portfolio peut contenir des projets à des stades différents — c'est normal pour
+un freelance qui démarre — mais **chaque étude de cas porte son statut de façon
+visible**, et le lecteur doit toujours savoir ce qu'il regarde. Ne jamais gonfler,
+ne jamais laisser un projet de démonstration passer pour une commande client.
+
+**Trois statuts, trois traitements :**
+
+| Statut | Badge | Classe CSS |
+|---|---|---|
+| Livré, en ligne | aucun badge + lien « Voir le site en ligne » | — |
+| Client réel, en cours | « Projet en cours — pas encore en ligne » | `.case__status` (contour) |
+| Démonstration, sans client | « Projet de démonstration — … fictif » | `.case__status.case__status--demo` (plein) |
+
+Le badge « démonstration » est **plein** et non en contour, précisément pour qu'on
+ne puisse ni le manquer ni le confondre avec « projet en cours ».
+
+**Les quatre projets au 24/08/2026 :**
+
+1. **Charlies Gabriella** — landing page de vente développée à la main, paiement
+   **Stripe**. Livré et en ligne. ⚠️ Ce n'est **pas** un site Shopify.
+2. **Atelier Inoly** (Gwenaëlle) — refonte de boutique WooCommerce. Client réel,
+   développement en cours. Voir §10.
+3. **Brasa** — site de restaurant à Metz, 5 pages statiques. **Démonstration,
+   restaurant fictif.** Les coordonnées, la carte, les prix et les témoignages du
+   projet source sont inventés : ils ne doivent jamais être repris ailleurs, ni
+   sur ce site ni dans un JSON-LD.
+4. **Lexora** — site de cabinet d'avocats à Metz, page unique. **Démonstration,
+   cabinet fictif.**
+
+**Pourquoi des démonstrations.** Restaurant et cabinet d'avocats sont deux
+clientèles locales à forte valeur que le portfolio ne couvrait pas. Elles montrent
+une compétence sectorielle avant qu'un client l'ait commandée. C'est un usage
+courant et légitime — à la seule condition d'être annoncé, ce qui est fait.
+
+**Ordre d'affichage : le réel d'abord, la démonstration ensuite.** Ne pas
+intercaler. Un futur projet livré s'insère avant Brasa, pas à la fin.
 
 ## 10. État et chantiers en cours
 
@@ -207,6 +239,8 @@ laquelle Formspree a été abandonné au profit d'un script PHP maison.
 
 ---
 
-*Dernière mise à jour : 17 août 2026 — audit SEO local : polices auto-hébergées,
-images WebP + srcset, `provider` JSON-LD redéclaré, mentions légales indexables,
+*Dernière mise à jour : 24 août 2026 — ajout de Brasa et Lexora au portfolio comme
+projets de démonstration, et refonte de la §9 (trois statuts de projet, badge plein
+pour les démonstrations). Précédemment, le 17/08/2026 : audit SEO local — téléphone
+partout, polices auto-hébergées, images WebP + srcset, `provider` JSON-LD redéclaré,
 chemins d'assets uniformisés, `.well-known` débloqué dans `.htaccess`.*

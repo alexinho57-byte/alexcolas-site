@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Portfolio — Alexandre Colas, sites internet à Metz</title>
-<meta name="description" content="Les sites livrés par Alexandre Colas, créateur de sites internet à Metz. Étude de cas : la landing page de vente de Charlies Gabriella.">
+<meta name="description" content="Les projets d'Alexandre Colas, créateur de sites internet à Metz : landing page Stripe, boutique WooCommerce, restaurant et cabinet d'avocats.">
 <link rel="canonical" href="https://alexcolas.com/portfolio">
 
 <meta property="og:type" content="article">
@@ -30,7 +30,7 @@
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=1">
-<link rel="stylesheet" href="/assets/css/style.css?v=12">
+<link rel="stylesheet" href="/assets/css/style.css?v=13">
 </head>
 <body>
 
@@ -77,6 +77,11 @@
       <p class="lede">
         Un projet de site, ce n'est pas une maquette : c'est un objectif, des contraintes
         et des décisions. Voici les miennes, projet par projet.
+      </p>
+      <p class="lede">
+        Quatre projets, à trois stades différents : un site en ligne, une boutique en
+        cours de développement, et deux sites de démonstration que j'ai construits pour
+        moi. Chacun porte son statut — vous saurez toujours ce que vous regardez.
       </p>
     </div>
   </section>
@@ -177,7 +182,7 @@
   </article>
 
   <div class="section section--bone case-divider">
-    <span>Étude de cas — 02 / 02</span>
+    <span>Étude de cas — 02 / 04</span>
   </div>
 
   <!-- ────────────────────────  ÉTUDE DE CAS 2  ─────────────────────── -->
@@ -267,6 +272,201 @@
           <div>
             <dt>Réalisation</dt>
             <dd>Thème WordPress / WooCommerce sur mesure</dd>
+          </div>
+        </dl>
+      </div>
+
+    </div>
+  </article>
+
+  <div class="section section--bone case-divider">
+    <span>Étude de cas — 03 / 04</span>
+  </div>
+
+  <!-- ────────────────────  ÉTUDE DE CAS 3 — DÉMONSTRATION  ───────────── -->
+  <article class="section section--bone case">
+    <div class="shell">
+
+      <figure class="case__shot">
+        <picture>
+          <source type="image/webp"
+                  sizes="(max-width: 1100px) 100vw, 1040px"
+                  srcset="/assets/img/brasa-metz-720.webp 720w,
+                          /assets/img/brasa-metz-1080.webp 1080w,
+                          /assets/img/brasa-metz-1440.webp 1440w">
+          <img src="/assets/img/brasa-metz-1080.jpg"
+               sizes="(max-width: 1100px) 100vw, 1040px"
+               srcset="/assets/img/brasa-metz-720.jpg 720w,
+                       /assets/img/brasa-metz-1080.jpg 1080w,
+                       /assets/img/brasa-metz-1440.jpg 1440w"
+               alt="Page d'accueil du site Brasa : salle de restaurant sombre éclairée par un feu de cheminée, titre « Le feu comme seul artifice » et bouton cuivre « Réserver une table »"
+               width="1440" height="790" loading="lazy">
+        </picture>
+      </figure>
+
+      <div class="case__body">
+        <div class="case__intro">
+          <p class="label">Étude de cas</p>
+          <span class="case__status case__status--demo">Démonstration — restaurant fictif</span>
+          <h2 class="section__title">Brasa — le site d'un restaurant de viande à Metz</h2>
+          <p class="lede">
+            Un site que je me suis commandé à moi-même, pour traiter une question que
+            les restaurateurs se posent tous : comment un site fait-il réellement
+            remplir une salle&nbsp;?
+          </p>
+        </div>
+
+        <div class="case__text">
+          <h3>L'exercice</h3>
+          <p>
+            Brasa n'existe pas. C'est un restaurant de viande maturée que j'ai inventé
+            pour construire le site que j'aurais proposé à un vrai. La restauration est
+            l'un des secteurs les plus demandeurs à Metz, et l'un des plus mal servis :
+            beaucoup de cartes en PDF illisibles sur téléphone, et des sites qui
+            racontent une ambiance sans jamais amener à réserver.
+          </p>
+
+          <h3>La réponse</h3>
+          <p>
+            Un parcours qui converge vers un seul geste. Le bouton «&nbsp;Réserver&nbsp;»
+            reste visible en permanence, et chacune des cinq pages y ramène. La carte est
+            une vraie page web — lisible au pouce, avec une sous-navigation qui suit la
+            lecture — et non un PDF à pincer pour zoomer. Le reste installe l'atmosphère
+            sans jamais retarder la réservation.
+          </p>
+
+          <h3>Ce que contient le site</h3>
+          <ul class="case__list">
+            <li>Cinq pages : accueil, carte, expérience, galerie, réservation</li>
+            <li>Un moteur de créneaux qui respecte les horaires et les jours de fermeture</li>
+            <li>Une galerie avec visionneuse au clavier (←, →, Échap)</li>
+            <li>Un plan Google Maps qui ne se charge qu'au clic&nbsp;: aucun cookie tiers déposé sans action du visiteur</li>
+            <li>Données structurées <em>Restaurant</em> pour la recherche locale</li>
+          </ul>
+
+          <h3>Le choix technique</h3>
+          <p>
+            Cinq pages statiques, sans CMS ni base de données. Un restaurant modifie sa
+            carte quelques fois par an, pas trois fois par jour&nbsp;: lui vendre un
+            WordPress à maintenir serait lui vendre une charge, pas un outil. La palette
+            cuivre est échantillonnée directement sur le logo, et tout le site tient sur
+            une poignée de variables CSS — changer une couleur se fait à un seul endroit.
+          </p>
+        </div>
+
+        <dl class="case__meta">
+          <div>
+            <dt>Nature</dt>
+            <dd>Démonstration — aucun client réel</dd>
+          </div>
+          <div>
+            <dt>Projet</dt>
+            <dd>Site vitrine de restaurant, 5 pages</dd>
+          </div>
+          <div>
+            <dt>Année</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt>Réalisation</dt>
+            <dd>HTML, CSS et JavaScript, sans framework</dd>
+          </div>
+        </dl>
+      </div>
+
+    </div>
+  </article>
+
+  <div class="section section--bone case-divider">
+    <span>Étude de cas — 04 / 04</span>
+  </div>
+
+  <!-- ────────────────────  ÉTUDE DE CAS 4 — DÉMONSTRATION  ───────────── -->
+  <article class="section section--bone case">
+    <div class="shell">
+
+      <figure class="case__shot">
+        <picture>
+          <source type="image/webp"
+                  sizes="(max-width: 1100px) 100vw, 1040px"
+                  srcset="/assets/img/lexora-avocats-720.webp 720w,
+                          /assets/img/lexora-avocats-1080.webp 1080w,
+                          /assets/img/lexora-avocats-1440.webp 1440w">
+          <img src="/assets/img/lexora-avocats-1080.jpg"
+               sizes="(max-width: 1100px) 100vw, 1040px"
+               srcset="/assets/img/lexora-avocats-720.jpg 720w,
+                       /assets/img/lexora-avocats-1080.jpg 1080w,
+                       /assets/img/lexora-avocats-1440.jpg 1440w"
+               alt="Page d'accueil du site Lexora Avocats : façade bleu marine, balance de justice dorée et titre « Face à l'épreuve, une défense qui tient »"
+               width="1440" height="790" loading="lazy">
+        </picture>
+      </figure>
+
+      <div class="case__body">
+        <div class="case__intro">
+          <p class="label">Étude de cas</p>
+          <span class="case__status case__status--demo">Démonstration — cabinet fictif</span>
+          <h2 class="section__title">Lexora — le site d'un cabinet d'avocats à Metz</h2>
+          <p class="lede">
+            Un cabinet inventé, pour traiter un cas où le visiteur n'est pas un client
+            ordinaire&nbsp;: il arrive inquiet, souvent le soir, parfois dans l'urgence.
+          </p>
+        </div>
+
+        <div class="case__text">
+          <h3>L'exercice</h3>
+          <p>
+            Lexora n'existe pas. J'ai construit ce site pour une raison précise&nbsp;: on
+            ne cherche pas un avocat comme on cherche un plombier. Séparation, procédure
+            pénale, conflit au travail — le visiteur traverse un mauvais moment. Un site
+            qui cherche à impressionner le fait fuir&nbsp;; un site qui rassure le fait
+            décrocher son téléphone.
+          </p>
+
+          <h3>La réponse</h3>
+          <p>
+            Une seule page, construite autour de trois domaines immédiatement
+            identifiables — famille, pénal, travail. Le parti pris visuel est celui de la
+            plaque de cabinet en laiton&nbsp;: une façade bleu marine, un nom gravé, et le
+            contenu posé sur des plaques crème en léger relief. C'est sobre et un peu
+            solennel, parce que le sujet l'est.
+          </p>
+
+          <h3>Ce que contient le site</h3>
+          <ul class="case__list">
+            <li>Trois domaines de pratique présentés sans jargon juridique</li>
+            <li>Une présentation du cabinet centrée sur la méthode&nbsp;: expliquer avant d'agir</li>
+            <li>Un formulaire de contact avec validation et messages d'erreur en clair</li>
+            <li>Une navigation mobile plein écran, pensée pour une consultation le soir</li>
+            <li>Typographie et symbole repris du logo, auto-hébergés</li>
+          </ul>
+
+          <h3>Le choix technique</h3>
+          <p>
+            Une page unique en HTML et CSS, sans framework. Le détail dont je suis le plus
+            satisfait n'est pas technique&nbsp;: partout où un contenu réel manquait —
+            témoignages, chiffres, parcours des associés — le site affiche un encadré qui
+            le signale, au lieu de combler avec du texte inventé. C'est la règle que je
+            m'applique aussi sur les vrais projets.
+          </p>
+        </div>
+
+        <dl class="case__meta">
+          <div>
+            <dt>Nature</dt>
+            <dd>Démonstration — aucun client réel</dd>
+          </div>
+          <div>
+            <dt>Projet</dt>
+            <dd>Site vitrine de cabinet d'avocats, page unique</dd>
+          </div>
+          <div>
+            <dt>Année</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt>Réalisation</dt>
+            <dd>HTML et CSS, sans framework</dd>
           </div>
         </dl>
       </div>

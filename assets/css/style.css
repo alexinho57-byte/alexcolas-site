@@ -616,6 +616,15 @@ a{color:inherit}
   margin:0 0 1rem;
 }
 
+/* Projet de démonstration, sans client réel. Le badge est plein plutôt
+   qu'en contour : il doit se lire au premier coup d'œil et ne jamais être
+   confondu avec « projet en cours », qui désigne un vrai client. */
+.case__status--demo{
+  color:var(--bone-hi);
+  background:var(--taupe-lo);
+  border-color:var(--taupe-lo);
+}
+
 .case:has(+ .case-divider){padding-bottom:0}
 .case-divider + .case{padding-top:0}
 .case-divider{
