@@ -221,8 +221,15 @@ ne doit sauter** :
   Démonstration »**, qui se signale comme fictive même hors contexte.
 - Lexora : les quatre portraits étaient des **photos de personnes réelles** issues
   de banques d'images, sous des identités d'avocats inventées, avec numéros de
-  toque et dates de serment fabriqués. Remplacés par des monogrammes
-  (`.person__portrait--vide`) et la mention « Profil fictif ».
+  toque et dates de serment fabriqués. Les numéros de toque et dates de serment
+  restent supprimés (données d'un ordre professionnel), remplacés par la mention
+  « Profil fictif ».
+  **Portraits remplacés le 24/08/2026** par quatre visages **générés** par
+  Alexandre : personne de réel derrière, donc plus d'atteinte au droit à l'image.
+  C'était la seule raison des monogrammes ; la classe `.person__portrait--vide`
+  reste en place comme repli mais n'est plus utilisée. ⚠️ Si ces portraits sont
+  un jour remplacés, la règle demeure : **jamais de photo d'une personne réelle
+  sous une identité inventée.**
 - Brasa : les trois avis cinq étoiles portent « — *avis fictif* ».
 
 ⚠️ Les dossiers sources restent hors dépôt (`Desktop/claude code/`). Le dépôt ne

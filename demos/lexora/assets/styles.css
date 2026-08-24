@@ -793,9 +793,22 @@ body{ padding-top:var(--demo-flag-h); }
 
 .site-header{ top:var(--demo-flag-h); }
 
-/* Monogramme remplaçant les portraits : les photos d'origine montraient
-   des personnes réelles issues de banques d'images, sous des identités
-   d'avocats inventées. Impubliable en l'état. */
+/* <picture> est inline par défaut : sans cette règle, le portrait ne
+   remplirait pas la carte. */
+/* Les portraits sont enveloppés dans un <picture> pour servir du WebP.
+   <picture> est inline par défaut : sans display:block, il ne remplirait
+   pas la carte.
+   height:auto est indispensable : l'attribut height="750" de l'image
+   s'applique comme hauteur CSS, et aspect-ratio ne peut pas la contredire.
+   Sans cette ligne, les portraits s'affichent en 264 × 750 au lieu de
+   264 × 330. */
+.person picture{display:block}
+.person__portrait{height:auto}
+
+/* Monogramme conservé comme repli : plus utilisé depuis que les portraits
+   sont des visages générés, donc sans personne réelle derrière. Il avait
+   remplacé des photos de banques d'images montrant de vraies personnes
+   sous des identités d'avocats inventées — impubliable en l'état. */
 .person__portrait--vide{
   aspect-ratio:4/5;width:100%;
   display:flex;align-items:center;justify-content:center;
