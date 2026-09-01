@@ -397,6 +397,7 @@ a{color:inherit}
 .offer__item h3{font-size:1.3rem;font-weight:600;margin:0}
 .offer__item p{margin:0;color:var(--ink-soft);max-width:58ch}
 .offer__item .link-out{margin-top:.9rem}
+@media (min-width:760px){.offer__item .link-out{grid-column:2}}
 
 /* =============================================================
    À PROPOS

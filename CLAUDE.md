@@ -136,18 +136,24 @@ jamais laisser une démonstration passer pour une commande client.
 | Client réel, en cours | « Projet en cours — pas encore en ligne » | `.case__status` (contour) |
 | Démonstration | « Projet de démonstration — … fictif » | `.case__status.case__status--demo` (plein) |
 
-**Les quatre projets au 24/08/2026 :**
+**Les quatre projets au 01/09/2026 :**
 
 1. **Charlies Gabriella** — landing page de vente à la main, paiement **Stripe**.
    Livré et en ligne. ⚠️ Ce n'est **pas** un site Shopify.
-2. **Atelier Inoly** (Gwenaëlle) — refonte WooCommerce. Client réel, en cours.
+2. **Atelier Inoly** (Gwenaëlle) — refonte WooCommerce, thème sur mesure. Livré et
+   en ligne sur **atelierinoly.fr** (01/09/2026). Mis en avant dans le bloc
+   « Dernière réalisation » de l'accueil, placé en tête du portfolio, et maillé
+   depuis la FAQ de `/site-ecommerce` — la page parlait de WooCommerce sans
+   pouvoir le prouver.
 3. **Brasa** — restaurant à Metz, 5 pages. **Démonstration, fictif.** Coordonnées,
    carte, prix et témoignages inventés : ne jamais les reprendre ailleurs, ni
    sur ce site ni dans un JSON-LD.
 4. **Lexora** — cabinet d'avocats à Metz, page unique. **Démonstration, fictif.**
 
 **Ordre d'affichage : le réel d'abord, la démonstration ensuite.** Ne pas
-intercaler. Un futur projet livré s'insère avant Brasa, pas à la fin.
+intercaler. Le plus récent des projets réels ouvre le portfolio et alimente le
+bloc « Dernière réalisation » de l'accueil — les deux pages montrent le même
+projet en tête. Un futur projet livré s'insère avant Brasa, pas à la fin.
 
 ### Les démonstrations en ligne — `/demos/`
 
@@ -196,4 +202,5 @@ enrichissement du portfolio, CSS critique en ligne, pages Thionville / Nancy.
 légales et en JSON-LD (`+33617970274`). S'il change, il doit être modifié
 **partout à la fois** : un numéro divergent est pire qu'absent.
 
-*Màj 01/09/2026 — historique et justifications extraits vers `CLAUDE.archive.md`.*
+*Màj 01/09/2026 — Atelier Inoly livré ; historique et justifications extraits vers
+`CLAUDE.archive.md`.*

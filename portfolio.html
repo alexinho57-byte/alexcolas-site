@@ -30,7 +30,7 @@
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=1">
-<link rel="stylesheet" href="/assets/css/style.css?v=13">
+<link rel="stylesheet" href="/assets/css/style.css?v=14">
 </head>
 <body>
 
@@ -79,14 +79,115 @@
         et des décisions. Voici les miennes, projet par projet.
       </p>
       <p class="lede">
-        Quatre projets, à trois stades différents : un site en ligne, une boutique en
-        cours de développement, et deux sites de démonstration que j'ai construits pour
-        moi. Chacun porte son statut — vous saurez toujours ce que vous regardez.
+        Quatre projets : deux sites en ligne, et deux sites de démonstration que j'ai
+        construits pour moi. Chacun porte son statut — vous saurez toujours ce que
+        vous regardez.
       </p>
     </div>
   </section>
 
   <!-- ────────────────────────  ÉTUDE DE CAS  ──────────────────────── -->
+  <article class="section section--bone case">
+    <div class="shell">
+
+      <figure class="case__shot">
+        <picture>
+          <source type="image/webp"
+                  sizes="(max-width: 1100px) 100vw, 1040px"
+                  srcset="/assets/img/atelier-inoly-720.webp?v=2 720w,
+                          /assets/img/atelier-inoly-1080.webp?v=2 1080w,
+                          /assets/img/atelier-inoly-1440.webp?v=2 1440w">
+          <img src="/assets/img/atelier-inoly-1080.jpg?v=2"
+               sizes="(max-width: 1100px) 100vw, 1040px"
+               srcset="/assets/img/atelier-inoly-720.jpg?v=2 720w,
+                       /assets/img/atelier-inoly-1080.jpg?v=2 1080w,
+                       /assets/img/atelier-inoly-1440.jpg?v=2 1440w"
+               alt="Page d'accueil du site Atelier Inoly : titre « Chaque paire est façonnée, cuite et montée à la main » et photo d'un geste de façonnage en pâte polymère"
+               width="1440" height="790" fetchpriority="high">
+        </picture>
+      </figure>
+
+      <div class="case__body">
+        <div class="case__intro">
+          <p class="label">Étude de cas</p>
+          <h2 class="section__title">Atelier Inoly — la boutique de bijoux de Gwenaëlle</h2>
+          <p class="lede">
+            Une refonte de boutique en ligne pensée pour un produit où la couleur prime sur
+            tout : chaque bijou est une pièce quasi unique, et un classement par catégorie
+            ne suffit pas à s'y retrouver.
+          </p>
+          <a class="link-out" href="https://atelierinoly.fr/" target="_blank" rel="noopener">
+            Voir le site en ligne
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="case__text">
+          <h3>Le besoin</h3>
+          <p>
+            Gwenaëlle façonne des bijoux en pâte polymère et acier inoxydable sous le nom
+            Atelier Inoly : boucles d'oreilles et pin's, en pièces uniques ou petites séries,
+            jamais deux fois la même teinte. Sa boutique en ligne ne rendait pas justice à ce
+            travail — impossible de naviguer par couleur, aucun espace pour expliquer la
+            fabrication, et pas de page pour le sur-mesure qu'elle propose déjà à ses clientes.
+          </p>
+
+          <h3>La réponse</h3>
+          <p>
+            Une charte graphique reconstruite à partir des contraintes de lisibilité réelles
+            du logo plutôt que de ses couleurs telles quelles, et un dispositif de navigation
+            par teinte — le nuancier — qui devient l'entrée principale du catalogue. Une page
+            dédiée présente l'atelier et le geste ; une autre porte la demande de bijou sur
+            mesure, jusque-là absente du site.
+          </p>
+
+          <h3>Ce que contient le site</h3>
+          <ul class="case__list">
+            <li>Un nuancier pour parcourir le catalogue par couleur plutôt que par catégorie</li>
+            <li>Une fiche produit avec choix de teinte et disponibilité par pièce</li>
+            <li>Une page « Sur mesure » avec formulaire de demande personnalisée</li>
+            <li>Une page « L'atelier » qui présente Gwenaëlle et sa façon de travailler</li>
+            <li>Un catalogue de 56 pièces, filtrable et paginé</li>
+          </ul>
+
+          <h3>Le choix technique</h3>
+          <p>
+            Contrairement à Charlies Gabriella, Gwenaëlle doit gérer elle-même son stock, ses
+            commandes et ses fiches produit au quotidien : WordPress et WooCommerce, plutôt
+            qu'un site statique, sont ici le bon outil. Le thème est développé sur mesure
+            au-dessus de WooCommerce plutôt que de partir d'un thème du commerce, pour que la
+            navigation par couleur — le vrai sujet du site — ne soit pas un compromis.
+          </p>
+        </div>
+
+        <dl class="case__meta">
+          <div>
+            <dt>Client</dt>
+            <dd>Gwenaëlle — Atelier Inoly</dd>
+          </div>
+          <div>
+            <dt>Projet</dt>
+            <dd>Refonte de boutique en ligne</dd>
+          </div>
+          <div>
+            <dt>Année</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt>Réalisation</dt>
+            <dd>Thème WordPress / WooCommerce sur mesure</dd>
+          </div>
+        </dl>
+      </div>
+
+    </div>
+  </article>
+
+  <div class="section section--bone case-divider">
+    <span>Étude de cas — 02 / 04</span>
+  </div>
+
+  <!-- ────────────────────────  ÉTUDE DE CAS 2  ─────────────────────── -->
   <article class="section section--bone case">
     <div class="shell">
 
@@ -103,7 +204,7 @@
                        /assets/img/charliesgi-1080.jpg 1080w,
                        /assets/img/charliesgi-1440.jpg 1440w"
                alt="Page d'accueil du site Charlies Gabriella : titre « Rituel du Portail du Lion 8/8 », illustration d'un lion, bouton de réservation et barre d'achat"
-               width="1440" height="1000" fetchpriority="high">
+               width="1440" height="1000" loading="lazy">
         </picture>
       </figure>
 
@@ -174,104 +275,6 @@
           <div>
             <dt>Réalisation</dt>
             <dd>Page unique statique, paiement Stripe</dd>
-          </div>
-        </dl>
-      </div>
-
-    </div>
-  </article>
-
-  <div class="section section--bone case-divider">
-    <span>Étude de cas — 02 / 04</span>
-  </div>
-
-  <!-- ────────────────────────  ÉTUDE DE CAS 2  ─────────────────────── -->
-  <article class="section section--bone case">
-    <div class="shell">
-
-      <figure class="case__shot">
-        <picture>
-          <source type="image/webp"
-                  sizes="(max-width: 1100px) 100vw, 1040px"
-                  srcset="/assets/img/atelier-inoly-720.webp 720w,
-                          /assets/img/atelier-inoly-1080.webp 1080w,
-                          /assets/img/atelier-inoly-1440.webp 1440w">
-          <img src="/assets/img/atelier-inoly-1080.jpg"
-               sizes="(max-width: 1100px) 100vw, 1040px"
-               srcset="/assets/img/atelier-inoly-720.jpg 720w,
-                       /assets/img/atelier-inoly-1080.jpg 1080w,
-                       /assets/img/atelier-inoly-1440.jpg 1440w"
-               alt="Maquette de la page d'accueil Atelier Inoly : titre « Chaque paire est façonnée, cuite et montée à la main » et photo d'un geste de façonnage en pâte polymère"
-               width="1440" height="790" loading="lazy">
-        </picture>
-      </figure>
-
-      <div class="case__body">
-        <div class="case__intro">
-          <p class="label">Étude de cas</p>
-          <span class="case__status">Projet en cours — pas encore en ligne</span>
-          <h2 class="section__title">Atelier Inoly — la boutique de bijoux de Gwenaëlle</h2>
-          <p class="lede">
-            Une refonte de boutique en ligne pensée pour un produit où la couleur prime sur
-            tout : chaque bijou est une pièce quasi unique, et un classement par catégorie
-            ne suffit pas à s'y retrouver.
-          </p>
-        </div>
-
-        <div class="case__text">
-          <h3>Le besoin</h3>
-          <p>
-            Gwenaëlle façonne des bijoux en pâte polymère et acier inoxydable sous le nom
-            Atelier Inoly : boucles d'oreilles et pin's, en pièces uniques ou petites séries,
-            jamais deux fois la même teinte. Sa boutique en ligne ne rendait pas justice à ce
-            travail — impossible de naviguer par couleur, aucun espace pour expliquer la
-            fabrication, et pas de page pour le sur-mesure qu'elle propose déjà à ses clientes.
-          </p>
-
-          <h3>La réponse</h3>
-          <p>
-            Une charte graphique reconstruite à partir des contraintes de lisibilité réelles
-            du logo plutôt que de ses couleurs telles quelles, et un dispositif de navigation
-            par teinte — le nuancier — qui devient l'entrée principale du catalogue. Une page
-            dédiée présente l'atelier et le geste ; une autre porte la demande de bijou sur
-            mesure, jusque-là absente du site.
-          </p>
-
-          <h3>Ce que contient la maquette</h3>
-          <ul class="case__list">
-            <li>Un nuancier pour parcourir le catalogue par couleur plutôt que par catégorie</li>
-            <li>Une fiche produit avec choix de teinte et disponibilité par pièce</li>
-            <li>Une page « Sur mesure » avec formulaire de demande personnalisée</li>
-            <li>Une page « L'atelier » qui présente Gwenaëlle et sa façon de travailler</li>
-            <li>Un catalogue de 60 pièces, filtrable et paginé</li>
-          </ul>
-
-          <h3>Le choix technique</h3>
-          <p>
-            Contrairement à Charlies Gabriella, Gwenaëlle doit gérer elle-même son stock, ses
-            commandes et ses fiches produit au quotidien : WordPress et WooCommerce, plutôt
-            qu'un site statique, sont ici le bon outil. Le thème est développé sur mesure
-            au-dessus de WooCommerce plutôt que de partir d'un thème du commerce, pour que la
-            navigation par couleur — le vrai sujet du site — ne soit pas un compromis.
-          </p>
-        </div>
-
-        <dl class="case__meta">
-          <div>
-            <dt>Client</dt>
-            <dd>Gwenaëlle — Atelier Inoly</dd>
-          </div>
-          <div>
-            <dt>Projet</dt>
-            <dd>Refonte de boutique en ligne</dd>
-          </div>
-          <div>
-            <dt>Statut</dt>
-            <dd>Maquette validée, développement en cours</dd>
-          </div>
-          <div>
-            <dt>Réalisation</dt>
-            <dd>Thème WordPress / WooCommerce sur mesure</dd>
           </div>
         </dl>
       </div>
