@@ -552,7 +552,7 @@ a{color:inherit}
 /* =============================================================
    PIED DE PAGE
    ============================================================= */
-.site-footer{background:var(--navy);color:var(--bone);padding-block:4rem 2.25rem}
+.site-footer{background:var(--navy);color:var(--bone);padding-block:4rem 2.25rem;border-top:1px solid var(--line-light)}
 .site-footer__inner{display:grid;gap:2.75rem 3rem}
 @media (min-width:760px){
   .site-footer__inner{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);align-items:start}
