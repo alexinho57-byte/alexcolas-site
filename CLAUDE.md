@@ -50,6 +50,10 @@ tiers payant ou récurrent est contraire au positionnement.
   (`assets/fonts/`, déclarées dans `assets/css/fonts.css`). Ne jamais rebrancher
   un CDN de polices ou de scripts.
 - **Hébergement : Hostinger.** HTTPS forcé. **PHP** disponible côté serveur.
+- **Cache : les feuilles de styles et les scripts portent un `?v=N`.** Toute
+  modification de `assets/css/style.css` oblige à incrémenter ce numéro dans
+  les **7 pages** — sinon Hostinger continue de servir l’ancien fichier et le
+  changement reste invisible en ligne.
 - **Déploiement continu :** `git push` → webhook Hostinger → mise en ligne.
   **Un commit poussé est un commit en production.** Vérifier avant de pousser.
 
