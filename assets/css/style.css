@@ -552,19 +552,39 @@ a{color:inherit}
 /* =============================================================
    PIED DE PAGE
    ============================================================= */
-.site-footer{background:var(--navy);color:var(--bone);padding-block:3.5rem}
-.site-footer__inner{
-  display:flex;flex-wrap:wrap;align-items:center;
-  justify-content:space-between;gap:1.5rem 2rem;
+.site-footer{background:var(--navy);color:var(--bone);padding-block:4rem 2.25rem}
+.site-footer__inner{display:grid;gap:2.75rem 3rem}
+@media (min-width:760px){
+  .site-footer__inner{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);align-items:start}
 }
-.site-footer__name{
-  font-family:var(--font-display);font-weight:800;font-size:1.02rem;margin:0;
+
+.site-footer__brand{max-width:34ch}
+.site-footer__logo{
+  display:inline-flex;align-items:center;gap:.6rem;
+  text-decoration:none;color:inherit;
+  font-family:var(--font-display);font-weight:800;font-size:1.02rem;
 }
-.site-footer__nav{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;font-size:.92rem}
-.site-footer__nav a{text-decoration:none;opacity:.75;transition:opacity .2s var(--ease)}
-.site-footer__nav a:hover{opacity:1}
+.site-footer__mark{width:1.9rem;height:1.9rem;flex:none;color:var(--taupe-hi)}
+.site-footer__baseline{
+  margin:.9rem 0 0;font-size:.9rem;line-height:1.6;opacity:.62;
+}
+
+.site-footer__cols{display:grid;gap:2rem 1.5rem;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:620px){
+  .site-footer__cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.site-footer__col{display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;font-size:.92rem}
+.site-footer__title{
+  margin:0 0 .35rem;
+  font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--taupe-hi);opacity:.85;
+}
+.site-footer__col a{text-decoration:none;opacity:.75;transition:opacity .2s var(--ease)}
+.site-footer__col a:hover,.site-footer__col a[aria-current="page"]{opacity:1}
+.site-footer__zone{margin:0;font-size:.9rem;opacity:.5}
+
 .site-footer__legal{
-  width:100%;margin:0;
+  grid-column:1/-1;margin:0;
   padding-top:1.75rem;border-top:1px solid var(--line-light);
   font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;
   opacity:.5;

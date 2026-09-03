@@ -86,6 +86,9 @@ tiers payant ou récurrent est contraire au positionnement.
 - **Typographie : Bricolage Grotesque.** Choix définitif.
 - **Logo :** monogramme « AC » avec une piqûre de couture.
 - Priorité au **mobile**.
+- **Pied de page en colonnes** (03/09/2026) : bloc de marque à gauche, puis
+  Services / Le studio / Contact. Trois colonnes dès 620 px, deux en dessous.
+  Pas d’icônes de réseaux sociaux : aucun compte derrière.
 
 **Décisions arrêtées — ne pas rouvrir sans demande explicite d'Alexandre :**
 
@@ -189,6 +192,15 @@ sous une identité inventée.**
 - [ ] **Fiche Google Business Profile.** Trois options étudiées, voir l'archive.
       **Jamais d'adresse inventée.** Une fois la fiche choisie, ajouter son URL
       en `sameAs` dans le JSON-LD de l'accueil.
+- [ ] **NAP — `latelierdamelie57.fr`.** Ce site WordPress est une ancienne
+      réalisation d'Alexandre (hors dépôt, il en a les accès). Ses mentions
+      légales le déclarent « édité par Alexandre COLAS, 38 rue Mangin, 57000
+      Metz » : une **adresse obsolète**, publiée à son nom, et à Metz. Google
+      lit ces mentions. Tant qu'elle traîne, elle contredit toute autre adresse
+      déclarée — fiche Google Business comprise. À corriger avant d'ouvrir la
+      fiche. Le même site est aussi le seul lien entrant possible depuis un vrai
+      site messin : un « Site réalisé par Alexandre Colas » en pied de page.
+
 - [ ] **Avis Google.** Seul facteur du pack local actionnable immédiatement.
       Charlies Gabriella devrait laisser le premier. Ne jamais inventer ces
       valeurs.
