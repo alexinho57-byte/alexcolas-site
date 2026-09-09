@@ -206,7 +206,10 @@ Brasa et Lexora ont vécu en ligne avec `url(assets/fonts/…)` dans un CSS déj
 situé dans `assets/` : les polices tombaient en 404 et les deux démos
 s'affichaient en Times New Roman. Corrigé le 09/09/2026. Après toute
 manipulation de polices, vérifier `document.fonts` dans la console, pas
-seulement que la page « a l'air bien ».
+seulement que la page « a l'air bien ». ⚠️ **Et incrémenter le `?v=N` du
+`fonts.css` de la démo** : ces fichiers sont mis en cache un an. Sans nouveau
+numéro, la correction reste invisible pour qui a déjà vu la page — c'est
+exactement ce qui est arrivé à Brasa au premier essai.
 
 **Noverde est construit par Astro**, pas écrit à la main. Le dossier source
 (hors dépôt) vise `noverde.fr` à la racine d'un domaine ; ce qui est publié ici
