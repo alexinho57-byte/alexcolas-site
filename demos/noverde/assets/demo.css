@@ -23,3 +23,7 @@
 @media (max-width:760px){ .demo-flag{font-size:.75rem} }
 
 body{ position:relative; padding-top:var(--demo-flag-h); }
+
+/* Le bloc d'abonnement au flux a ete retire de la page journal : sa rangee
+   n'a plus qu'un enfant et laissait la moitie droite vide. */
+.jn__fin-row:has(> :only-child){ grid-template-columns:1fr; }

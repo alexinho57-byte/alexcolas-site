@@ -175,10 +175,12 @@ soit quatorze écrans — personne ne lisait quatre études à la suite.
 3. **Brasa** — restaurant à Metz, 5 pages. **Démonstration, fictif.** Coordonnées,
    carte, prix et témoignages inventés : ne jamais les reprendre ailleurs, ni
    sur ce site ni dans un JSON-LD.
-4. **Noverde** — paysagiste à Metz, 8 pages, projet Astro. **Démonstration,
-   fictif.** En ligne dans `/demos/noverde/` depuis le 09/09/2026. Les quatre
-   concurrents messins analysés ne sont **pas nommés** dans le texte — décision
-   délibérée, ce sont de vraies entreprises. Ne pas « corriger ».
+4. **Noverde** — paysagiste à Metz, **16 pages**, projet Astro. **Démonstration,
+   fictif.** En ligne dans `/demos/noverde/` depuis le 09/09/2026. Journal de
+   chantier ajouté par Alexandre le 09/09/2026 : 7 notes datées, chacune avec un
+   chiffre. Les quatre concurrents messins analysés ne sont **pas nommés** dans
+   le texte — décision délibérée, ce sont de vraies entreprises. Ne pas
+   « corriger ».
 5. **Lexora** — cabinet d'avocats à Metz, page unique. **Démonstration, fictif.**
 
 **Ordre d'affichage : le réel d'abord, la démonstration ensuite.** Ne pas
@@ -190,7 +192,7 @@ projet en tête. Un futur projet livré s'insère avant Brasa, pas à la fin.
 
 Cinq règles encadrent leur mise en ligne, et **aucune ne doit sauter** :
 
-1. **`noindex, nofollow` sur chacune des 19 pages.**
+1. **`noindex, nofollow` sur chacune des 27 pages.**
 2. **Pas de `Disallow` dans `robots.txt`** — délibéré : bloquer le crawl
    empêcherait Google de *lire* le `noindex`.
 3. **Aucune donnée structurée.** Les blocs JSON-LD (`Restaurant`, etc.) ont été
@@ -215,7 +217,20 @@ exactement ce qui est arrivé à Brasa au premier essai.
 (hors dépôt) vise `noverde.fr` à la racine d'un domaine ; ce qui est publié ici
 a été réécrit vers `/demos/noverde/`, liens internes en `.html` compris — le
 `.htaccess` ne réécrit rien sous `/demos/`. **Un nouveau build écrase ces
-corrections : il faut les rejouer.**
+corrections.** Elles sont rejouées d'un coup par `.claude/noverde-publier.py`
+(hors dépôt), qui recopie le build, applique les règles et **vérifie** qu'aucun
+chemin ne sort de `/demos/noverde/`, qu'aucun tiers n'est appelé et que le
+`noindex` est partout.
+
+⚠️ **Chaque rubrique ajoutée au site source doit être inscrite dans `SECTIONS`**
+de ce script, sinon ses liens tombent en 404 : le journal a été oublié au
+premier passage, et la vérification l'a rattrapé.
+
+⚠️ **Pas de flux RSS sur une démonstration.** Un flux ne peut pas porter de
+`noindex` et diffuserait des contenus fictifs comme réels, hors du site et sans
+le bandeau. `rss.xml` est supprimé à la publication, avec ses liens et le bloc
+« Suivre le journal ». La correction durable serait dans le source Astro —
+sinon chaque build le ramène.
 
 **Données neutralisées — ne pas les restaurer :** adresses en « rue de la
 Démonstration » ; numéros de toque et dates de serment de Lexora supprimés,
@@ -254,7 +269,7 @@ sous une identité inventée.**
 **Pistes non engagées** (détail dans l'archive) : page `/landing-page`,
 enrichissement du portfolio, CSS critique en ligne, pages Thionville / Nancy.
 
-⚠️ **Téléphone : 06 17 97 02 74**, présent sur les 12 pages, dans les mentions
+⚠️ **Téléphone : 06 17 97 02 74**, présent sur les 12 pages du site, dans les mentions
 légales et en JSON-LD (`+33617970274`). S'il change, il doit être modifié
 **partout à la fois** : un numéro divergent est pire qu'absent.
 
@@ -273,7 +288,7 @@ légales et en JSON-LD (`+33617970274`). S'il change, il doit être modifié
 - [x] **Trois images par étude de cas** — fait le 09/09/2026 pour les **trois
       démonstrations** : chacune porte deux vues de plus, légendées, prises sur
       les écrans que le texte décrit (la carte de Brasa, la grille d'honoraires
-      de Lexora, le curseur de Noverde).
+      de Lexora, le curseur et le journal de Noverde).
 - [ ] **Deux vues de plus pour Atelier Inoly et Charlies Gabriella.** Alexandre
       fournit lui-même ces captures : ce sont des sites clients, pas à moi de
       choisir ce qu'on en montre. Pour Inoly, le nuancier et la fiche produit
