@@ -52,7 +52,7 @@ tiers payant ou récurrent est contraire au positionnement.
 - **Hébergement : Hostinger.** HTTPS forcé. **PHP** disponible côté serveur.
 - **Cache : les feuilles de styles et les scripts portent un `?v=N`.** Toute
   modification de `assets/css/style.css` oblige à incrémenter ce numéro dans
-  les **7 pages** — sinon Hostinger continue de servir l’ancien fichier et le
+  les **12 pages** — sinon Hostinger continue de servir l’ancien fichier et le
   changement reste invisible en ligne.
 - **Déploiement continu :** `git push` → webhook Hostinger → mise en ligne.
   **Un commit poussé est un commit en production.** Vérifier avant de pousser.
@@ -62,7 +62,12 @@ tiers payant ou récurrent est contraire au positionnement.
 | URL | Contenu |
 |---|---|
 | `/` | Accueil : hero, services, méthode, à-propos |
-| `/portfolio` | Réalisations |
+| `/portfolio` | Grille des réalisations — une carte par projet |
+| `/portfolio/atelier-inoly` | Étude de cas — boutique WooCommerce |
+| `/portfolio/charlies-gabriella` | Étude de cas — landing page Stripe |
+| `/portfolio/noverde` | Étude de cas — démonstration paysagiste |
+| `/portfolio/brasa` | Étude de cas — démonstration restaurant |
+| `/portfolio/lexora` | Étude de cas — démonstration cabinet d'avocats |
 | `/site-vitrine` | Service — ciblage « site vitrine Metz » |
 | `/site-ecommerce` | Service — « site e-commerce Metz » (mentionne WooCommerce) |
 | `/refonte-site-internet` | Service — « refonte site internet Metz » |
@@ -76,6 +81,15 @@ tiers payant ou récurrent est contraire au positionnement.
 - URLs **sans extension `.html`**. Redirections 301 en place — toute nouvelle
   page suit la règle et est ajoutée aux redirections.
 - Toute nouvelle page est ajoutée au `sitemap.xml`.
+- **Le portfolio est un dossier** : `/portfolio` est servi par
+  `portfolio/index.html`, chaque étude de cas est un fichier de ce dossier.
+  Deux règles du `.htaccess` tiennent ça : `DirectorySlash Off` et la
+  réécriture `-d → /index.html`, qui évitent la redirection vers
+  `/portfolio/`. Une adresse sans slash final, toujours.
+- **Les six pages du portfolio sont générées par un gabarit commun** dans le
+  script de la session du 09/09/2026 — mais le dépôt ne contient que le HTML
+  produit. Une modification du header ou du footer se répercute donc à la main,
+  comme sur les autres pages.
 - **Chemins d'assets toujours absolus** (`/assets/…`, `/favicon.svg`). Les
   chemins relatifs cassent dès qu'une URL gagne un niveau de profondeur.
 - ⚠️ Header, footer, balises meta et JSON-LD sont **dupliqués dans chaque
@@ -143,7 +157,12 @@ jamais laisser une démonstration passer pour une commande client.
 | Client réel, en cours | « Projet en cours — pas encore en ligne » | `.case__status` (contour) |
 | Démonstration | « Projet de démonstration — … fictif » | `.case__status.case__status--demo` (plein) |
 
-**Les quatre projets au 01/09/2026 :**
+**Une page par étude de cas depuis le 09/09/2026.** `/portfolio` n'est plus
+qu'une grille de cartes : image, statut, titre, une phrase. Le détail vit sur
+`/portfolio/<slug>`. Motif : la page dépliée mesurait 11 214 px sur téléphone,
+soit quatorze écrans — personne ne lisait quatre études à la suite.
+
+**Les cinq projets au 09/09/2026 :**
 
 1. **Charlies Gabriella** — landing page de vente à la main, paiement **Stripe**.
    Livré et en ligne. ⚠️ Ce n'est **pas** un site Shopify.
@@ -155,7 +174,12 @@ jamais laisser une démonstration passer pour une commande client.
 3. **Brasa** — restaurant à Metz, 5 pages. **Démonstration, fictif.** Coordonnées,
    carte, prix et témoignages inventés : ne jamais les reprendre ailleurs, ni
    sur ce site ni dans un JSON-LD.
-4. **Lexora** — cabinet d'avocats à Metz, page unique. **Démonstration, fictif.**
+4. **Noverde** — paysagiste à Metz, 8 pages, projet Astro. **Démonstration,
+   fictif.** ⚠️ **Jamais mis en ligne** : pas de dossier dans `/demos/`, donc
+   pas de bouton « Ouvrir la démonstration » sur son étude de cas. Les quatre
+   concurrents messins analysés ne sont **pas nommés** dans le texte — décision
+   délibérée, ce sont de vraies entreprises. Ne pas « corriger ».
+5. **Lexora** — cabinet d'avocats à Metz, page unique. **Démonstration, fictif.**
 
 **Ordre d'affichage : le réel d'abord, la démonstration ensuite.** Ne pas
 intercaler. Le plus récent des projets réels ouvre le portfolio et alimente le
@@ -214,9 +238,20 @@ sous une identité inventée.**
 **Pistes non engagées** (détail dans l'archive) : page `/landing-page`,
 enrichissement du portfolio, CSS critique en ligne, pages Thionville / Nancy.
 
-⚠️ **Téléphone : 06 17 97 02 74**, présent sur les 7 pages, dans les mentions
+⚠️ **Téléphone : 06 17 97 02 74**, présent sur les 12 pages, dans les mentions
 légales et en JSON-LD (`+33617970274`). S'il change, il doit être modifié
 **partout à la fois** : un numéro divergent est pire qu'absent.
 
-*Màj 01/09/2026 — Atelier Inoly livré ; historique et justifications extraits vers
-`CLAUDE.archive.md`.*
+**Audit du 09/09/2026 — reste à faire, dans cet ordre :**
+
+- [x] Découper la page portfolio en une page par étude de cas *(fait le 09/09)*
+- [ ] **Afficher un prix de départ.** Le site n'affiche aucun chiffre, alors que
+      la démo Lexora reproche exactement ça au secteur. « Site vitrine à partir
+      de X € » suffit à lever la contradiction.
+- [ ] **Demander une phrase à Gwenaëlle et à Charlies Gabriella.** Zéro
+      témoignage aujourd'hui.
+- [ ] **Trois images par étude de cas au lieu d'une.** L'étude Inoly décrit un
+      nuancier et une fiche produit qu'on ne voit jamais.
+
+*Màj 09/09/2026 — portfolio découpé en six pages, Noverde ajouté ; historique et
+justifications dans `CLAUDE.archive.md`.*

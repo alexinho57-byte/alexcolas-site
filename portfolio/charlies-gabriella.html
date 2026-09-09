@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charlies Gabriella — landing page Stripe | Alexandre Colas</title>
+<meta name="description" content="Une page de vente codée à la main pour un lancement daté : quatre paliers de prix, compte à rebours et paiement Stripe. L'étude de cas.">
+<link rel="canonical" href="https://alexcolas.com/portfolio/charlies-gabriella">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Alexandre Colas">
+<meta property="og:url" content="https://alexcolas.com/portfolio/charlies-gabriella">
+<meta property="og:title" content="Charlies Gabriella — landing page Stripe | Alexandre Colas">
+<meta property="og:description" content="Une page de vente pour un lancement daté, sans CMS.">
+<meta property="og:image" content="https://alexcolas.com/assets/img/charliesgi-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="1000">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0d1728">
+
+<meta name="theme-color" content="#0d1728">
+
+<!-- Polices servies depuis ce domaine : ni preconnect ni requête vers
+     Google. Les deux polices du premier écran sont préchargées pour
+     éviter que le texte change d'aspect une fois la page affichée. -->
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css?v=1">
+
+<link rel="stylesheet" href="/assets/css/fonts.css?v=1">
+<link rel="stylesheet" href="/assets/css/style.css?v=17">
+</head>
+<body>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="site-header is-stuck" id="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="/">
+      <svg class="wordmark__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 45 23 19 35 45"/>
+          <path d="M19.4 32.8h7.2" stroke-width="2.2" stroke-linecap="butt" stroke-dasharray="1.62 1.17"/>
+          <path d="M53.4 25a11 11 0 1 0 0 14"/>
+        </g>
+      </svg>
+      <span class="wordmark__text">
+        Alexandre&nbsp;Colas
+        <span class="wordmark__role">Création de sites internet</span>
+      </span>
+    </a>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" id="burger">
+      <span class="burger__bars" aria-hidden="true"></span>
+      <span class="burger__label">Menu</span>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="/#services">Services</a>
+      <a href="/#methode">Méthode</a>
+      <a href="/#a-propos">À propos</a>
+      <a href="/portfolio" aria-current="true">Portfolio</a>
+      <a class="nav__cta" href="/#contact">Me contacter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <!-- ────────────────────────  INTRODUCTION  ──────────────────────── -->
+  <section class="section section--navy page-head">
+    <div class="shell">
+      <p class="label"><a href="/portfolio">Portfolio</a> — étude de cas</p>
+      <h1 class="section__title">Charlies Gabriella — Rituel du Portail du Lion</h1>
+      <p class="lede">
+        Une page de vente pour un lancement daté : une offre, une échéance,
+        un tarif qui monte par paliers.
+      </p>
+      <a class="link-out" href="https://charliesgi.com/" target="_blank" rel="noopener">
+        Voir le site en ligne
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ────────────────────────  ÉTUDE DE CAS  ──────────────────────── -->
+  <article class="section section--bone case">
+    <div class="shell">
+
+      <figure class="case__shot">
+        <picture>
+          <source type="image/webp"
+                  sizes="(max-width: 1100px) 100vw, 1040px"
+                  srcset="/assets/img/charliesgi-720.webp 720w,
+                                /assets/img/charliesgi-1080.webp 1080w,
+                                /assets/img/charliesgi-1440.webp 1440w">
+          <img src="/assets/img/charliesgi-1080.jpg"
+               sizes="(max-width: 1100px) 100vw, 1040px"
+               srcset="/assets/img/charliesgi-720.jpg 720w,
+                             /assets/img/charliesgi-1080.jpg 1080w,
+                             /assets/img/charliesgi-1440.jpg 1440w"
+               alt="Page d'accueil du site Charlies Gabriella : titre « Rituel du Portail du Lion 8/8 », illustration d'un lion, bouton de réservation et barre d'achat"
+               width="1440" height="1000" fetchpriority="high">
+        </picture>
+      </figure>
+
+      <div class="case__body">
+        <div class="case__text">
+          <h3>Le besoin</h3>
+          <p>
+            Charlies Gabriella accompagne des femmes en manifestation et vend ses rituels
+            sous forme de vidéos guidées. Pour l'ouverture du Portail du Lion, il fallait
+            une page capable de porter un lancement à date fixe : installer un univers,
+            rendre l'échéance lisible, et amener au paiement sans détour.
+          </p>
+
+          <h3>La réponse</h3>
+          <p>
+            Une page unique, codée à la main, sans CMS ni extension. Le premier écran pose
+            l'univers — illustration, sérif, palette poudrée — avant même de parler de prix.
+            L'urgence est portée par la structure de l'offre plutôt que par le ton : les
+            quatre paliers tarifaires sont affichés côte à côte, celui en cours est signalé,
+            et le compte à rebours dit simplement ce qu'il reste.
+          </p>
+
+          <h3>Ce que contient la page</h3>
+          <ul class="case__list">
+            <li>Un premier écran qui installe l'univers de la marque</li>
+            <li>Quatre paliers de prix, avec l'étape en cours mise en évidence</li>
+            <li>Un compte à rebours relié à la fin de l'offre</li>
+            <li>Les témoignages clientes et la présentation de la coach</li>
+            <li>Une barre d'achat permanente, visible à tout moment</li>
+            <li>Un paiement Stripe en un clic, puis livraison du rituel par e-mail</li>
+          </ul>
+
+          <h3>Le choix technique</h3>
+          <p>
+            Le site est entièrement statique : pas de base de données, aucune extension à
+            maintenir, aucun abonnement mensuel. L'affichage est immédiat, l'hébergement
+            coûte presque rien, et la page reste en ligne entre deux lancements sans
+            demander la moindre maintenance.
+          </p>
+        </div>
+
+        <dl class="case__meta">
+          <div>
+            <dt>Client</dt>
+            <dd>Charlies Gabriella</dd>
+          </div>
+          <div>
+            <dt>Projet</dt>
+            <dd>Landing page de vente</dd>
+          </div>
+          <div>
+            <dt>Année</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt>Réalisation</dt>
+            <dd>Page unique statique, paiement Stripe</dd>
+          </div>
+        </dl>
+      </div>
+
+      <nav class="case-nav" aria-label="Autres réalisations">
+        <p class="case-nav__all"><a class="link-out" href="/portfolio">Toutes les réalisations</a></p>
+        <p class="case-nav__prev"><span>Précédent</span><a href="/portfolio/atelier-inoly">Atelier Inoly</a></p>
+        <p class="case-nav__next"><span>Suivant</span><a href="/portfolio/noverde">Noverde</a></p>
+      </nav>
+
+    </div>
+  </article>
+
+  <!-- ────────────────────────  SUITE  ─────────────────────────────── -->
+  <section class="section section--navy next-up">
+    <div class="shell next-up__inner">
+      <div>
+        <p class="label">La suite</p>
+        <h2 class="section__title">Votre projet peut être le suivant.</h2>
+        <p class="lede">
+          Décrivez-moi ce que vous avez en tête. Je réponds sous 24 heures avec un premier
+          avis et une estimation.
+        </p>
+      </div>
+      <a class="btn btn--solid" href="/#contact">Parler de votre projet</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+
+    <div class="site-footer__brand">
+      <a class="site-footer__logo" href="/" aria-label="Alexandre Colas, accueil">
+        <svg class="site-footer__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 45 23 19 35 45"/>
+            <path d="M19.4 32.8h7.2" stroke-width="2.2" stroke-linecap="butt" stroke-dasharray="1.62 1.17"/>
+            <path d="M53.4 25a11 11 0 1 0 0 14"/>
+          </g>
+        </svg>
+        <span>Alexandre&nbsp;Colas</span>
+      </a>
+      <p class="site-footer__baseline">Des sites internet taill&eacute;s sur mesure, &agrave; Metz. Pas d&rsquo;abonnement, pas de d&eacute;pendance&nbsp;: votre site vous appartient.</p>
+    </div>
+
+    <div class="site-footer__cols">
+      <nav class="site-footer__col" aria-label="Services">
+        <p class="site-footer__title">Services</p>
+        <a href="/site-vitrine">Site vitrine</a>
+        <a href="/site-ecommerce">Site e-commerce</a>
+        <a href="/refonte-site-internet">Refonte de site</a>
+      </nav>
+      <nav class="site-footer__col" aria-label="Le studio">
+        <p class="site-footer__title">Le studio</p>
+        <a href="/">Accueil</a>
+        <a href="/portfolio" aria-current="true">Portfolio</a>
+        <a href="/mentions-legales">Mentions l&eacute;gales</a>
+      </nav>
+      <div class="site-footer__col">
+        <p class="site-footer__title">Contact</p>
+        <a href="tel:+33617970274">06&nbsp;17&nbsp;97&nbsp;02&nbsp;74</a>
+        <a href="mailto:contact@alexcolas.com">contact@alexcolas.com</a>
+        <p class="site-footer__zone">Metz et Moselle</p>
+      </div>
+    </div>
+
+    <p class="site-footer__legal">&copy; <span id="annee">2026</span> Alexandre Colas &mdash; Cr&eacute;ation de sites internet &agrave; Metz</p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js?v=10"></script>
+</body>
+</html>

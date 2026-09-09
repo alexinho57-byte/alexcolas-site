@@ -5,6 +5,10 @@
 # Pas de liste des fichiers si un dossier n'a pas d'index
 Options -Indexes
 
+# Pas de redirection automatique vers le slash final : c'est la règle
+# de réécriture plus bas qui sert /portfolio, sans slash.
+DirectorySlash Off
+
 # ── Adresse canonique ────────────────────────────────────────
 # HTTPS et suppression du www en UNE seule redirection.
 # Deux redirections en chaîne coûtent du référencement,
@@ -53,7 +57,20 @@ Options -Indexes
   RewriteCond %{THE_REQUEST} \s/+([^?\s]+?)\.html[\s?] [NC]
   RewriteRule ^ /%1 [R=301,L,NE]
 
-  # /portfolio sert portfolio.html, sans changer l'adresse affichée
+  # ── Slash final ────────────────────────────────────────────
+  # /portfolio/ → /portfolio. Une page n'a qu'une seule adresse :
+  # la variante avec slash ne doit pas exister en parallèle.
+  RewriteCond %{ENV:REDIRECT_STATUS} ^$
+  RewriteRule ^(.+?)/$ /$1 [R=301,L,NE]
+
+  # /portfolio sert portfolio/index.html, sans slash ni redirection.
+  # Cette règle doit passer avant mod_dir, qui sinon renverrait vers
+  # /portfolio/ — une redirection de plus à chaque visite.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index\.html -f
+  RewriteRule ^(.+?)/?$ /$1/index.html [L]
+
+  # /portfolio/atelier-inoly sert le .html, sans changer l'adresse affichée
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}\.html -f
   RewriteRule ^(.+?)/?$ /$1.html [L]
