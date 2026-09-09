@@ -261,9 +261,13 @@ légales et en JSON-LD (`+33617970274`). S'il change, il doit être modifié
 **Audit du 09/09/2026 — reste à faire, dans cet ordre :**
 
 - [x] Découper la page portfolio en une page par étude de cas *(fait le 09/09)*
-- [ ] **Afficher un prix de départ.** Le site n'affiche aucun chiffre, alors que
-      la démo Lexora reproche exactement ça au secteur. « Site vitrine à partir
-      de X € » suffit à lever la contradiction.
+- [x] ~~Afficher un prix de départ.~~ **Décision d'Alexandre, 09/09/2026 :
+      aucun chiffre sur le site**, un prix de départ ancre bas et ne veut rien
+      dire en sur-mesure. À la place, une entrée de FAQ « Combien coûte… ? » sur
+      les trois pages de service : les quatre critères qui font varier le prix,
+      et l'estimation gratuite sous 24 h. **Ne pas reproposer d'afficher un
+      tarif.** La contradiction avec la thèse de Lexora est atténuée, pas
+      effacée — c'est assumé.
 - [ ] **Demander une phrase à Gwenaëlle et à Charlies Gabriella.** Zéro
       témoignage aujourd'hui.
 - [ ] **Trois images par étude de cas au lieu d'une.** L'étude Inoly décrit un
