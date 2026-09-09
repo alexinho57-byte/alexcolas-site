@@ -52,7 +52,7 @@ tiers payant ou récurrent est contraire au positionnement.
 - **Hébergement : Hostinger.** HTTPS forcé. **PHP** disponible côté serveur.
 - **Cache : les feuilles de styles et les scripts portent un `?v=N`.** Toute
   modification de `assets/css/style.css` oblige à incrémenter ce numéro dans
-  les **12 pages** — sinon Hostinger continue de servir l’ancien fichier et le
+  les **12 pages** (actuellement `v=18`) — sinon Hostinger continue de servir l’ancien fichier et le
   changement reste invisible en ligne.
 - **Déploiement continu :** `git push` → webhook Hostinger → mise en ligne.
   **Un commit poussé est un commit en production.** Vérifier avant de pousser.
@@ -270,8 +270,14 @@ légales et en JSON-LD (`+33617970274`). S'il change, il doit être modifié
       effacée — c'est assumé.
 - [ ] **Demander une phrase à Gwenaëlle et à Charlies Gabriella.** Zéro
       témoignage aujourd'hui.
-- [ ] **Trois images par étude de cas au lieu d'une.** L'étude Inoly décrit un
-      nuancier et une fiche produit qu'on ne voit jamais.
+- [x] **Trois images par étude de cas** — fait le 09/09/2026 pour les **trois
+      démonstrations** : chacune porte deux vues de plus, légendées, prises sur
+      les écrans que le texte décrit (la carte de Brasa, la grille d'honoraires
+      de Lexora, le curseur de Noverde).
+- [ ] **Deux vues de plus pour Atelier Inoly et Charlies Gabriella.** Alexandre
+      fournit lui-même ces captures : ce sont des sites clients, pas à moi de
+      choisir ce qu'on en montre. Pour Inoly, le nuancier et la fiche produit
+      avec choix de teinte — le texte les décrit sans jamais les montrer.
 
 *Màj 09/09/2026 — portfolio découpé en six pages, Noverde ajouté ; historique et
 justifications dans `CLAUDE.archive.md`.*

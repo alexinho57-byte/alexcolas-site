@@ -1060,3 +1060,30 @@ a{color:inherit}
     mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 74%,transparent 100%);
   }
 }
+
+/* ── Deux vues de plus par étude de cas ───────────────────────
+   Le texte décrit des écrans qu'on ne voyait jamais : la carte de
+   Brasa, la grille d'honoraires de Lexora, le curseur de Noverde.
+   La légende dit ce qu'il faut regarder. */
+.case__vues{
+  margin:clamp(3rem,6vw,4.5rem) 0 0;
+  display:grid;gap:clamp(2rem,4vw,3rem);
+  grid-template-columns:1fr;
+}
+@media (min-width:820px){.case__vues{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.case__vue{margin:0}
+.case__vue img{
+  width:100%;height:auto;border-radius:6px;
+  background:var(--bone-hi);
+  box-shadow:0 2px 4px rgba(13,23,40,.06),0 18px 44px -18px rgba(13,23,40,.32);
+}
+.case__vue figcaption{
+  margin-top:1rem;
+  color:var(--ink-soft);font-size:.94rem;line-height:1.5;
+  padding-left:1.6rem;position:relative;
+}
+.case__vue figcaption::before{
+  content:"";position:absolute;left:0;top:.72em;
+  width:10px;height:1px;background:var(--ink);opacity:.45;
+}
