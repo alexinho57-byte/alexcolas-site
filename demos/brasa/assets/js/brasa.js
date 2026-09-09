@@ -262,7 +262,7 @@
         var f = document.createElement('iframe');
         f.src = mapBox.getAttribute('data-src');
         f.loading = 'lazy';
-        f.title = 'Plan d\'accès — BRASA, 9 rue des Clercs, Metz';
+        f.title = 'Plan d\'accès — BRASA, 9 rue de la Démonstration, Metz';
         f.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
         f.setAttribute('allowfullscreen', '');
         mapBox.innerHTML = '';

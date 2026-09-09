@@ -56,6 +56,13 @@ tiers payant ou récurrent est contraire au positionnement.
   changement reste invisible en ligne.
 - **Déploiement continu :** `git push` → webhook Hostinger → mise en ligne.
   **Un commit poussé est un commit en production.** Vérifier avant de pousser.
+- **Garde-fou automatique :** un hook `.git/hooks/pre-commit` lance
+  `.claude/verifier.py` et **annule le commit** si une règle des démonstrations
+  est enfreinte, si un `?v=N` diverge entre les pages, si le téléphone n'est pas
+  le même partout, ou si une image citée n'existe pas. Les deux fichiers sont
+  hors dépôt. En cas de faux positif, **corriger la règle** plutôt que d'utiliser
+  `--no-verify`. Ajouter une règle chaque fois qu'une erreur silencieuse est
+  découverte — c'est là tout l'intérêt.
 
 ## 5. Structure et URLs
 
