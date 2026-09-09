@@ -75,6 +75,7 @@ tiers payant ou récurrent est contraire au positionnement.
 | `/404` | Page d'erreur — `noindex` |
 | `/demos/brasa/` | Démonstration, restaurant fictif — `noindex`, voir §9 |
 | `/demos/lexora/` | Démonstration, cabinet fictif — `noindex`, voir §9 |
+| `/demos/noverde/` | Démonstration, paysagiste fictif — `noindex`, voir §9 |
 
 **Conventions :**
 
@@ -175,8 +176,7 @@ soit quatorze écrans — personne ne lisait quatre études à la suite.
    carte, prix et témoignages inventés : ne jamais les reprendre ailleurs, ni
    sur ce site ni dans un JSON-LD.
 4. **Noverde** — paysagiste à Metz, 8 pages, projet Astro. **Démonstration,
-   fictif.** ⚠️ **Jamais mis en ligne** : pas de dossier dans `/demos/`, donc
-   pas de bouton « Ouvrir la démonstration » sur son étude de cas. Les quatre
+   fictif.** En ligne dans `/demos/noverde/` depuis le 09/09/2026. Les quatre
    concurrents messins analysés ne sont **pas nommés** dans le texte — décision
    délibérée, ce sont de vraies entreprises. Ne pas « corriger ».
 5. **Lexora** — cabinet d'avocats à Metz, page unique. **Démonstration, fictif.**
@@ -190,7 +190,7 @@ projet en tête. Un futur projet livré s'insère avant Brasa, pas à la fin.
 
 Cinq règles encadrent leur mise en ligne, et **aucune ne doit sauter** :
 
-1. **`noindex, nofollow` sur chacune des 11 pages.**
+1. **`noindex, nofollow` sur chacune des 19 pages.**
 2. **Pas de `Disallow` dans `robots.txt`** — délibéré : bloquer le crawl
    empêcherait Google de *lire* le `noindex`.
 3. **Aucune donnée structurée.** Les blocs JSON-LD (`Restaurant`, etc.) ont été
@@ -200,6 +200,19 @@ Cinq règles encadrent leur mise en ligne, et **aucune ne doit sauter** :
    sont décalés de `--demo-flag-h`. Ne pas retirer ce décalage.
 5. **Aucune ressource tierce** : polices auto-hébergées dans chaque démo, et le
    cadre OpenStreetMap de la page contact de Lexora a été supprimé.
+
+⚠️ **Le `url()` d'un `fonts.css` est relatif au fichier CSS, pas à la page.**
+Brasa et Lexora ont vécu en ligne avec `url(assets/fonts/…)` dans un CSS déjà
+situé dans `assets/` : les polices tombaient en 404 et les deux démos
+s'affichaient en Times New Roman. Corrigé le 09/09/2026. Après toute
+manipulation de polices, vérifier `document.fonts` dans la console, pas
+seulement que la page « a l'air bien ».
+
+**Noverde est construit par Astro**, pas écrit à la main. Le dossier source
+(hors dépôt) vise `noverde.fr` à la racine d'un domaine ; ce qui est publié ici
+a été réécrit vers `/demos/noverde/`, liens internes en `.html` compris — le
+`.htaccess` ne réécrit rien sous `/demos/`. **Un nouveau build écrase ces
+corrections : il faut les rejouer.**
 
 **Données neutralisées — ne pas les restaurer :** adresses en « rue de la
 Démonstration » ; numéros de toque et dates de serment de Lexora supprimés,

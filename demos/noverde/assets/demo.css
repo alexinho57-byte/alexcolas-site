@@ -1,0 +1,25 @@
+/* Bandeau de demonstration — identique de principe a Brasa et Lexora.
+   L'en-tete de Noverde est en position absolue et se cale sur le body :
+   il suffit donc de positionner le body pour qu'il passe sous le bandeau. */
+:root{ --demo-flag-h:2.75rem; }
+@media (max-width:760px){ :root{ --demo-flag-h:3.9rem; } }
+
+.demo-flag{
+  position:fixed;top:0;left:0;right:0;z-index:99999;
+  min-height:var(--demo-flag-h);
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:.15rem 1rem;
+  padding:.45rem 1.1rem;
+  background:#0e2419;color:#eef2ea;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:.8rem;line-height:1.4;text-align:center;
+  border-bottom:1px solid rgba(238,242,234,.2);
+}
+.demo-flag p{margin:0}
+.demo-flag strong{color:#fff;font-weight:600}
+.demo-flag__dot{width:.45rem;height:.45rem;border-radius:50%;background:#8fb569;flex:none}
+.demo-flag a{color:#8fb569;text-decoration:underline;text-underline-offset:.2em;white-space:nowrap}
+.demo-flag a:hover{color:#fff}
+@media (max-width:760px){ .demo-flag{font-size:.75rem} }
+
+body{ position:relative; padding-top:var(--demo-flag-h); }
