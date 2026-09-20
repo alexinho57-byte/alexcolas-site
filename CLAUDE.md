@@ -71,7 +71,7 @@ tiers payant ou récurrent est contraire au positionnement.
 | `/` | Accueil : hero, services, méthode, à-propos |
 | `/portfolio` | Grille des réalisations — une carte par projet |
 | `/portfolio/atelier-inoly` | Étude de cas — boutique WooCommerce |
-| `/portfolio/charlies-gabriella` | Étude de cas — landing page Stripe |
+| `/portfolio/charlies-gabriella` | Étude de cas — landing page Stripe — **retirée du portfolio le 20/09/2026**, `noindex`, hors sitemap, plus aucun lien (voir §9) |
 | `/portfolio/noverde` | Étude de cas — démonstration paysagiste |
 | `/portfolio/brasa` | Étude de cas — démonstration restaurant |
 | `/portfolio/lexora` | Étude de cas — démonstration cabinet d'avocats |
@@ -170,10 +170,24 @@ qu'une grille de cartes : image, statut, titre, une phrase. Le détail vit sur
 `/portfolio/<slug>`. Motif : la page dépliée mesurait 11 214 px sur téléphone,
 soit quatorze écrans — personne ne lisait quatre études à la suite.
 
-**Les cinq projets au 09/09/2026 :**
+**Les cinq projets au 09/09/2026** (quatre affichés depuis le 20/09/2026, voir le point 1) **:**
 
 1. **Charlies Gabriella** — landing page de vente à la main, paiement **Stripe**.
    Livré et en ligne. ⚠️ Ce n'est **pas** un site Shopify.
+   ⚠️ **Retirée temporairement du portfolio le 20/09/2026**, à la demande
+   d'Alexandre. Le fichier `portfolio/charlies-gabriella.html` existe toujours
+   et porte un `noindex` ; la carte, l'entrée du `sitemap.xml` et tous les liens
+   ont été retirés, et le chaînage des études de cas a été recousu en
+   Atelier Inoly → Noverde. **Pour la remettre :** retirer le `noindex`,
+   décommenter le bloc du `sitemap.xml`, remettre la carte dans
+   `portfolio/index.html`, rebrancher Atelier Inoly → Charlies Gabriella →
+   Noverde, et repasser l'intro du portfolio à « Cinq projets : deux sites en
+   ligne ».
+   **Motif :** le site `charliesgi.com` est en cours de refonte. La page
+   d'étude de cas renvoyait vers lui (« Voir le site en ligne ») : un visiteur
+   serait tombé sur un chantier. Le retrait dure le temps des travaux — ce
+   n'est pas une décision de portfolio. **À remettre dès que le site est fini**,
+   sinon le portfolio reste à un seul projet réel, ce qui l'affaiblit.
 2. **Atelier Inoly** (Gwenaëlle) — refonte WooCommerce, thème sur mesure. Livré et
    en ligne sur **atelierinoly.fr** (01/09/2026). Mis en avant dans le bloc
    « Dernière réalisation » de l'accueil, placé en tête du portfolio, et maillé
@@ -266,6 +280,10 @@ sous une identité inventée.**
       déclarée — fiche Google Business comprise. À corriger avant d'ouvrir la
       fiche. Le même site est aussi le seul lien entrant possible depuis un vrai
       site messin : un « Site réalisé par Alexandre Colas » en pied de page.
+
+- [ ] **Remettre Charlies Gabriella dans le portfolio.** Retirée le 20/09/2026
+      le temps de la refonte de `charliesgi.com`. La marche à suivre est au §9.
+      Tant qu'elle manque, le portfolio n'a qu'un seul projet réel.
 
 - [ ] **Avis Google.** Seul facteur du pack local actionnable immédiatement.
       Charlies Gabriella devrait laisser le premier. Ne jamais inventer ces

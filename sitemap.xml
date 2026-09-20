@@ -22,12 +22,22 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Charlies Gabriella : retiree temporairement du portfolio le 20/09/2026,
+       a la demande d'Alexandre. Le fichier portfolio/charlies-gabriella.html
+       existe toujours et porte un noindex ; la carte, les liens « precedent /
+       suivant » et cette entree ont ete retires.
+       → Pour la remettre : decommenter ce bloc, retirer le noindex de
+         portfolio/charlies-gabriella.html, remettre la carte dans
+         portfolio/index.html et rebrancher le chainage
+         Atelier Inoly → Charlies Gabriella → Noverde.
+
   <url>
     <loc>https://alexcolas.com/portfolio/charlies-gabriella</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  -->
 
   <url>
     <loc>https://alexcolas.com/portfolio/noverde</loc>
