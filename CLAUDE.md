@@ -87,7 +87,7 @@ le besoin ; le devis fixe vient ensuite.
 - **Hébergement : Hostinger.** HTTPS forcé. **PHP** disponible côté serveur.
 - **Cache : les feuilles de styles et les scripts portent un `?v=N`.** Toute
   modification de `assets/css/style.css` oblige à incrémenter ce numéro dans
-  les **12 pages** (actuellement `style.css?v=18`, `main.js?v=11`) — sinon Hostinger continue de servir l’ancien fichier et le
+  les **12 pages** (actuellement `style.css?v=18`, `main.js?v=11`, `logo-stitch.js?v=1`) — sinon Hostinger continue de servir l’ancien fichier et le
   changement reste invisible en ligne.
 - **Déploiement continu :** `git push` → webhook Hostinger → mise en ligne.
   **Un commit poussé est un commit en production.** Vérifier avant de pousser.
