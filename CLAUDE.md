@@ -52,6 +52,10 @@ tiers payant ou récurrent est contraire au positionnement.
   m'appeler », « faire vivre seul », « prise en main ».
 - **Exception : une boutique WooCommerce reste gérable par le client**
   (produits, prix, stock, commandes). Ces promesses-là restent vraies.
+  Le client reçoit un petit guide PDF par geste ; le plus technique est fait
+  par Alexandre, sur estimation validée.
+- **E-commerce = WordPress + WooCommerce uniquement** (25/09/2026), thème sur
+  mesure. Plus d'offre de boutique codée à la main.
 
 **Tarifs (25/09/2026) — référence interne :** site vitrine dès 1 200 €,
 landing page dès 800 €, e-commerce WooCommerce dès 2 500 €, refonte sur devis.
