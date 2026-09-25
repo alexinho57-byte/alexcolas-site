@@ -70,7 +70,7 @@ mention TVA si le régime change.
 
 **Accueil allégé (25/09/2026) :** titre « Votre activité mérite un site qui
 donne envie. », expérience commerciale sous les boutons. Styles propres à
-l'accueil dans `/assets/css/home.css` (`?v=5`), chargé sur cette seule page.
+l'accueil dans `/assets/css/home.css` (`?v=6`), chargé sur cette seule page.
 
 **Vocabulaire :** « premier échange gratuit — 30 minutes », **jamais « audit
 gratuit »** : le mot promet une analyse écrite. C'est un appel pour comprendre
