@@ -115,7 +115,7 @@ a{color:inherit}
   display:flex;align-items:center;gap:.7rem;
 }
 /* Le monogramme AC : la barre du A est une piqûre de couture. */
-.wordmark__mark{width:42px;height:42px;flex:none;display:block}
+.wordmark__mark{width:46px;height:46px;flex:none;display:block}
 .wordmark__text{display:flex;flex-direction:column}
 .wordmark__role{
   font-family:var(--font-mono);
