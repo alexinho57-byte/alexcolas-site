@@ -78,6 +78,17 @@
     if (e.key === 'Escape') closeNav();
   });
 
+  /* Toucher l'écran hors du menu le referme. Ce toucher ne fait que ça :
+     sans le bloquer, un doigt posé sur un bouton en dessous changerait
+     de page sans que le visiteur l'ait voulu. */
+  document.addEventListener('click', function (e) {
+    if (!nav.classList.contains('is-open')) return;
+    if (nav.contains(e.target) || burger.contains(e.target)) return;
+    e.preventDefault();
+    e.stopPropagation();
+    closeNav();
+  }, true);
+
   /* ── Année du pied de page ──────────────────────────────── */
   var annee = document.getElementById('annee');
   if (annee) annee.textContent = new Date().getFullYear();
