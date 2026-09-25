@@ -153,7 +153,7 @@
       var corps =
         'Nom : ' + donnees.nom + '\n' +
         'E-mail : ' + donnees.email + '\n' +
-        'Type de projet : ' + donnees.projet + '\n\n' +
+        'Type de projet : ' + (donnees.projet || 'Non précisé') + '\n\n' +
         donnees.message;
 
       window.location.href =

@@ -41,6 +41,35 @@ décision de design, de wording et de structure.
 **Test de cohérence :** toute proposition créant une dépendance à un service
 tiers payant ou récurrent est contraire au positionnement.
 
+**Qui modifie le site après la livraison (décision du 25/09/2026) :**
+
+- **Le client reste propriétaire de son site** : code, nom de domaine et
+  hébergement à son nom, libre de changer de prestataire.
+- **Un site codé à la main (vitrine, landing page) n'est pas modifié par le
+  client.** C'est Alexandre qui fait les modifications : demande du client →
+  estimation → intervention après accord, **90 €/h, TVA non applicable**.
+  Ne plus jamais écrire « vous pourrez le modifier vous-même », « sans
+  m'appeler », « faire vivre seul », « prise en main ».
+- **Exception : une boutique WooCommerce reste gérable par le client**
+  (produits, prix, stock, commandes). Ces promesses-là restent vraies.
+
+**Tarifs (25/09/2026) — référence interne :** site vitrine dès 1 200 €,
+landing page dès 800 €, e-commerce WooCommerce dès 2 500 €, refonte sur devis.
+TVA non applicable (art. 293 B du CGI). Intervention après livraison : 90 €/h.
+⚠️ **Prix de départ affichés depuis le 25/09/2026** (accueil et FAQ
+« Combien coûte… ? » de `/site-vitrine` et `/site-ecommerce`), avec la mention
+« TVA non applicable ». Cette décision remplace celle du 09/09 (« aucun chiffre
+sur le site »). Le périmètre et le prix final sont fixés au devis. Revoir la
+mention TVA si le régime change.
+
+**Accueil allégé (25/09/2026) :** titre « Votre activité mérite un site qui
+donne envie. », expérience commerciale sous les boutons. Styles propres à
+l'accueil dans `/assets/css/home.css` (`?v=4`), chargé sur cette seule page.
+
+**Vocabulaire :** « premier échange gratuit — 30 minutes », **jamais « audit
+gratuit »** : le mot promet une analyse écrite. C'est un appel pour comprendre
+le besoin ; le devis fixe vient ensuite.
+
 ## 4. Stack et déploiement
 
 - **Site statique HTML / CSS / JS.** Pas de framework, pas de build step, pas de
@@ -52,7 +81,7 @@ tiers payant ou récurrent est contraire au positionnement.
 - **Hébergement : Hostinger.** HTTPS forcé. **PHP** disponible côté serveur.
 - **Cache : les feuilles de styles et les scripts portent un `?v=N`.** Toute
   modification de `assets/css/style.css` oblige à incrémenter ce numéro dans
-  les **12 pages** (actuellement `v=18`) — sinon Hostinger continue de servir l’ancien fichier et le
+  les **12 pages** (actuellement `style.css?v=18`, `main.js?v=11`) — sinon Hostinger continue de servir l’ancien fichier et le
   changement reste invisible en ligne.
 - **Déploiement continu :** `git push` → webhook Hostinger → mise en ligne.
   **Un commit poussé est un commit en production.** Vérifier avant de pousser.
@@ -144,6 +173,8 @@ Search Console** configuré ; **Google Business Profile** créé par Alexandre
 - ❌ **Pas de balisage `FAQPage`.** Les FAQ visibles restent utiles au lecteur,
   c'est leur seule justification.
 - ❌ **Jamais d'adresse déclarée à Metz** tant que le siège est à Silly-sur-Nied.
+- **NAP — téléphone :** `06 17 97 02 74` est publié sur le site. Il doit être
+  **identique** sur la fiche Google Business Profile.
 
 **Règles pour toute nouvelle page :**
 
@@ -192,7 +223,10 @@ soit quatorze écrans — personne ne lisait quatre études à la suite.
    en ligne sur **atelierinoly.fr** (01/09/2026). Mis en avant dans le bloc
    « Dernière réalisation » de l'accueil, placé en tête du portfolio, et maillé
    depuis la FAQ de `/site-ecommerce` — la page parlait de WooCommerce sans
-   pouvoir le prouver.
+   pouvoir le prouver. **Depuis le 20/09/2026, c'est le seul client réel
+   publié.** ⚠️ **Ne jamais afficher un nombre de pièces** : le catalogue change
+   régulièrement (« 56 pièces » retiré le 25/09/2026). Témoignage de Gwenaëlle :
+   à venir.
 3. **Brasa** — restaurant à Metz, 5 pages. **Démonstration, fictif.** Coordonnées,
    carte, prix et témoignages inventés : ne jamais les reprendre ailleurs, ni
    sur ce site ni dans un JSON-LD.
@@ -266,9 +300,15 @@ sous une identité inventée.**
 
 **En attente — ne dépend que d'Alexandre :**
 
-- [ ] **SIRET.** Pas encore obtenu. Préalable légal aux mentions légales
-      complètes et à la facturation. Tant qu'il manque, la page reste `noindex`.
-      Champs restants marqués `.todo` dans `mentions-legales.html`.
+- [ ] **Mentions légales — SIRET.** Pas encore obtenu (et RCS seulement s'il
+      s'applique au statut). Préalable légal aux mentions légales complètes et
+      à la facturation. Tant qu'il manque, la page reste `noindex`. Champs
+      restants marqués `.todo` dans `mentions-legales.html`.
+- [ ] **Témoignage de Gwenaëlle (Atelier Inoly).** À demander : zéro
+      témoignage sur le site aujourd'hui. Idem pour Charlies Gabriella à son
+      retour.
+- [ ] **Mesurer l'origine des demandes.** À décider : comment savoir d'où
+      vient chaque demande de devis. Sans outil tiers payant (voir §3).
 - [ ] **Fiche Google Business Profile.** Trois options étudiées, voir l'archive.
       **Jamais d'adresse inventée.** Une fois la fiche choisie, ajouter son URL
       en `sameAs` dans le JSON-LD de l'accueil.
@@ -298,28 +338,14 @@ enrichissement du portfolio, CSS critique en ligne, pages Thionville / Nancy.
 légales et en JSON-LD (`+33617970274`). S'il change, il doit être modifié
 **partout à la fois** : un numéro divergent est pire qu'absent.
 
-**Audit du 09/09/2026 — reste à faire, dans cet ordre :**
+**Reste de l'audit du 09/09/2026 :**
 
-- [x] Découper la page portfolio en une page par étude de cas *(fait le 09/09)*
-- [x] **Prix de départ validés par Alexandre le 25/09/2026** : vitrine
-      1 200 €, landing page 800 €, boutique WooCommerce 2 500 € ; refonte
-      sur devis après analyse. Cette décision remplace celle du 09/09.
-      Le périmètre et le prix final sont fixés au devis avant le démarrage.
-      Alexandre confirme ne pas facturer la TVA le 25/09/2026 : mention
-      « TVA non applicable » sur les tarifs. Revoir cette mention si le régime change.
-- [x] **Accueil allégé** : titre « Votre activité mérite un site qui donne envie. »,
-      expérience commerciale sous les boutons, portrait après le texte sur mobile.
-      Styles spécifiques dans `/assets/css/home.css?v=4`, uniquement sur l'accueil.
-- [ ] **Demander une phrase à Gwenaëlle et à Charlies Gabriella.** Zéro
-      témoignage aujourd'hui.
-- [x] **Trois images par étude de cas** — fait le 09/09/2026 pour les **trois
-      démonstrations** : chacune porte deux vues de plus, légendées, prises sur
-      les écrans que le texte décrit (la carte de Brasa, la grille d'honoraires
-      de Lexora, le curseur et le journal de Noverde).
 - [ ] **Deux vues de plus pour Atelier Inoly et Charlies Gabriella.** Alexandre
       fournit lui-même ces captures : ce sont des sites clients, pas à moi de
       choisir ce qu'on en montre. Pour Inoly, le nuancier et la fiche produit
       avec choix de teinte — le texte les décrit sans jamais les montrer.
 
-*Màj 09/09/2026 — portfolio découpé en six pages, Noverde ajouté ; historique et
+*Màj 25/09/2026 — corrections de l'audit du 13/09 : modifications après
+livraison faites par Alexandre (90 €/h), « premier échange » au lieu
+d'« audit », garanties retirées de la page refonte. Historique et
 justifications dans `CLAUDE.archive.md`.*
