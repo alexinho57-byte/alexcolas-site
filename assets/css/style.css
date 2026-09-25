@@ -1007,6 +1007,20 @@ a{color:inherit}
   }
   .site-header .nav .nav__cta:hover{background:var(--bone);border-color:var(--bone);color:var(--navy)}
   .site-header__inner{position:relative}
+
+  /* Voile sombre sous le menu ouvert : la page est « en pause », on
+     comprend qu'un toucher à côté referme le menu. Il laisse passer
+     les touchers, que main.js intercepte. */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:40;
+    background:rgba(13,23,40,.55);
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .4s var(--ease),visibility 0s linear .4s;
+  }
+  body:has(.nav.is-open)::after{
+    opacity:1;visibility:visible;
+    transition:opacity .4s var(--ease),visibility 0s;
+  }
 }
 
 /* Complément exact de la règle ci-dessus : téléphones, et tout
