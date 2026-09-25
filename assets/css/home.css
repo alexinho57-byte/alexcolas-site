@@ -25,5 +25,18 @@
   .hero__actions .btn{padding:.85rem 1.1rem}
   .hero__experience{font-size:.95rem}
   .hero__media{order:1;width:min(100%,380px);height:320px;max-height:none;aspect-ratio:auto;align-self:center;margin:0;z-index:0}
-  .hero__media img{object-position:52% 18%;mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 78%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 78%,transparent 100%)}
+  /* Fondu sur les quatre côtés, comme sur ordinateur, et photo un peu
+     assombrie : sinon le halo du studio tranche sur le fond du hero. */
+  .hero__media img{
+    object-position:52% 18%;
+    filter:brightness(.9);
+    -webkit-mask-image:
+      linear-gradient(to right,transparent 0,#000 20%,#000 80%,transparent 100%),
+      linear-gradient(to bottom,transparent 0,#000 12%,#000 78%,transparent 100%);
+    mask-image:
+      linear-gradient(to right,transparent 0,#000 20%,#000 80%,transparent 100%),
+      linear-gradient(to bottom,transparent 0,#000 12%,#000 78%,transparent 100%);
+    -webkit-mask-composite:source-in;
+    mask-composite:intersect;
+  }
 }
