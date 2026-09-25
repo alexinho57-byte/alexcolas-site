@@ -998,10 +998,14 @@ a{color:inherit}
   .nav.is-open{max-height:22rem;padding-block:.5rem 1.5rem}
   .nav a{width:100%;padding:.95rem 0;border-bottom:1px solid var(--line-light);font-size:1.05rem}
   .nav a:last-child{border-bottom:0}
-  .nav__cta{
+  /* Bouton plein couleur os : en contour seul sur le marine du menu,
+     on ne le distinguait pas des liens. */
+  .nav a.nav__cta{
+    background:var(--bone-hi);color:var(--navy);
     border:1px solid var(--bone-hi);border-radius:999px;
-    margin-top:1rem;padding:.7rem 1.4rem;width:auto;text-align:center;
+    margin-top:1rem;padding:.7rem 1.4rem;text-align:center;
   }
+  .site-header .nav .nav__cta:hover{background:var(--bone);border-color:var(--bone);color:var(--navy)}
   .site-header__inner{position:relative}
 }
 
