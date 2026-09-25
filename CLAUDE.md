@@ -301,13 +301,15 @@ légales et en JSON-LD (`+33617970274`). S'il change, il doit être modifié
 **Audit du 09/09/2026 — reste à faire, dans cet ordre :**
 
 - [x] Découper la page portfolio en une page par étude de cas *(fait le 09/09)*
-- [x] ~~Afficher un prix de départ.~~ **Décision d'Alexandre, 09/09/2026 :
-      aucun chiffre sur le site**, un prix de départ ancre bas et ne veut rien
-      dire en sur-mesure. À la place, une entrée de FAQ « Combien coûte… ? » sur
-      les trois pages de service : les quatre critères qui font varier le prix,
-      et l'estimation gratuite sous 24 h. **Ne pas reproposer d'afficher un
-      tarif.** La contradiction avec la thèse de Lexora est atténuée, pas
-      effacée — c'est assumé.
+- [x] **Prix de départ validés par Alexandre le 25/09/2026** : vitrine
+      1 200 €, landing page 800 €, boutique WooCommerce 2 500 € ; refonte
+      sur devis après analyse. Cette décision remplace celle du 09/09.
+      Le périmètre et le prix final sont fixés au devis avant le démarrage.
+      Alexandre confirme ne pas facturer la TVA le 25/09/2026 : mention
+      « TVA non applicable » sur les tarifs. Revoir cette mention si le régime change.
+- [x] **Accueil allégé** : titre « Votre activité mérite un site qui donne envie. »,
+      expérience commerciale sous les boutons, portrait après le texte sur mobile.
+      Styles spécifiques dans `/assets/css/home.css?v=4`, uniquement sur l'accueil.
 - [ ] **Demander une phrase à Gwenaëlle et à Charlies Gabriella.** Zéro
       témoignage aujourd'hui.
 - [x] **Trois images par étude de cas** — fait le 09/09/2026 pour les **trois
